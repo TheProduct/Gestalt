@@ -1,0 +1,28 @@
+Intention and Motivation
+--
+
+gestalt is a library, designed for prototyping and developing OpenGL-based sketches and applications. It is also a library for the programming environment processing. 
+
+while gestalt makes it easier to work with opengl it is also a collection of interesting OpenGL examples. we occasionally use gestalt as a tool for teaching OpenGL and generative design but mostly as a starting point or reference for our own software-based installations.
+
+the motivation for creating gestalt was two-fold: on the one hand we realized that we needed a structure that would function like a diary in which we could record certain OpenGL techniques we used over-and-over or were just interested in over the years for later reference. on the other hand we realized, as we grew more experiences with OpenGL, that certain advanced techniques like transparency, real-time shadows or certrain shader operations just required a persistent structure. This allowed us for example to sort shapes before drawing to achieve correct transparency, to repeatedly draw a single frame from different perspectives to created shadowmaps, or to blur and post-process a frame to achieve a glow-effect.
+
+
+Structure and Usage
+--
+
+the core concept of gestalt is comprised of three components: a bookkeeper called 'renderer' that administers, a series of containers called 'bins', and a wide range of fragments called 'drawables' that are stored in 'bins'.
+
+'drawables' always contain a draw method with just the necessary code, to fullfill a very specific functionality for example like drawing a box. all 'drawables' are stored in 'bins'. every frame ( or iteration ) the bookkeeper automatically sorts and draws the contents of the bins.
+
+gestalt comes with a series of already implemented shapes, like line, triangle, plane, quad, cuboid, sphere, or mesh. it is very simple to create custom drawables and add custom functionality. 'drawables' can be nested to achieve more complex structures.
+
+in addion to the drawables, gestalt comes with a range of extensions that provide a wide range of additional functionaliy. most notably maybe, materials and cameras. cameras are used to 'move around' the contents of a bin. materials alter the appearence of a shape through the use of for example textures or shaders. the gestalt materials and textures can handle a great deal of the otherwise occasionally frustrating negotiation with OpenGL over texture formats, pixel packing, blendmodes etcetera.
+
+essentially gestalt is nothing more than an educated selection of shapes, extension and examples, that address reoccuring, interesting or complicated OpenGL techniques and usage.
+
+
+Gestalt and Processing
+--
+
+to be honest. gestalt was not developed to collaborate with processing. gestalt comes with it s own window-, resource-, and loop-handling and does not rely on the processing environment. none the less we respect and value processing for what it is and decided to integrate gestalt as a library into processing. with OpenGL being the lowest common denominator the integration is quite easy. there are a few caveats one should be aware of though, most of which are subtle differences.

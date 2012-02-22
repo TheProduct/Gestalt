@@ -1,7 +1,7 @@
 /*
  * Mathematik
  *
- * Copyright (C) 2011 Patrick Kochlik + Dennis Paul
+ * Copyright (C) 2012 Patrick Kochlik + Dennis Paul
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

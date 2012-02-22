@@ -1,7 +1,7 @@
 /*
  * Gestalt
  *
- * Copyright (C) 2011 Patrick Kochlik + Dennis Paul
+ * Copyright (C) 2012 Patrick Kochlik + Dennis Paul
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,10 +23,12 @@
 
 package gestalt;
 
-import gestalt.render.bin.DisposableBin;
-import gestalt.shape.PointSpriteCloud;
 import gestalt.context.DisplayCapabilities;
 import gestalt.extension.quadline.QuadLine;
+import gestalt.material.Material;
+import gestalt.material.TexturePlugin;
+import gestalt.material.texture.Bitmap;
+import gestalt.material.texture.Bitmaps;
 import gestalt.model.ModelData;
 import gestalt.model.ModelLoaderOBJ;
 import gestalt.processing.Model;
@@ -34,18 +36,16 @@ import gestalt.render.AnimatorRenderer;
 import gestalt.render.BasicRenderer;
 import gestalt.render.Drawable;
 import gestalt.render.bin.Bin;
+import gestalt.render.bin.DisposableBin;
 import gestalt.render.controller.Camera;
 import gestalt.render.controller.cameraplugins.Light;
 import gestalt.shape.Cuboid;
 import gestalt.shape.Disk;
-import gestalt.material.Material;
 import gestalt.shape.Mesh;
 import gestalt.shape.Plane;
+import gestalt.shape.PointSpriteCloud;
 import gestalt.shape.Quad;
 import gestalt.shape.Sphere;
-import gestalt.material.TexturePlugin;
-import gestalt.material.texture.Bitmap;
-import gestalt.material.texture.Bitmaps;
 import gestalt.util.CameraMover;
 
 import java.io.InputStream;

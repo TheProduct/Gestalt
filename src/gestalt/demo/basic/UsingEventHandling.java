@@ -186,7 +186,7 @@ public class UsingEventHandling
         for (int i = 0; i < _myFontPlane.length; ++i) {
             /* create plane */
             _myFontPlane[i] = drawablefactory().plane();
-            _myFontPlane[i].material().color.set(1f, 1f);
+            _myFontPlane[i].material().color4f().set(1f, 1f);
 
             /* create texture */
             _myFontTexture[i] = drawablefactory().texture();
@@ -213,31 +213,31 @@ public class UsingEventHandling
     private void highlightPlane(char key) {
         switch (key) {
             case '1':
-                _myFontPlane[0].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[0].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '2':
-                _myFontPlane[1].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[1].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '3':
-                _myFontPlane[2].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[2].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '4':
-                _myFontPlane[3].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[3].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '5':
-                _myFontPlane[4].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[4].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '6':
-                _myFontPlane[5].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[5].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '7':
-                _myFontPlane[6].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[6].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '8':
-                _myFontPlane[7].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[7].material().color4f().set(1f, 0, 0, 1f);
                 break;
             case '9':
-                _myFontPlane[8].material().color.set(1f, 0, 0, 1f);
+                _myFontPlane[8].material().color4f().set(1f, 0, 0, 1f);
                 break;
         }
     }
@@ -245,31 +245,31 @@ public class UsingEventHandling
     private void dehighlightPlane(char key) {
         switch (key) {
             case '1':
-                _myFontPlane[0].material().color.set(1f, 1f);
+                _myFontPlane[0].material().color4f().set(1f, 1f);
                 break;
             case '2':
-                _myFontPlane[1].material().color.set(1f, 1f);
+                _myFontPlane[1].material().color4f().set(1f, 1f);
                 break;
             case '3':
-                _myFontPlane[2].material().color.set(1f, 1f);
+                _myFontPlane[2].material().color4f().set(1f, 1f);
                 break;
             case '4':
-                _myFontPlane[3].material().color.set(1f, 1f);
+                _myFontPlane[3].material().color4f().set(1f, 1f);
                 break;
             case '5':
-                _myFontPlane[4].material().color.set(1f, 1f);
+                _myFontPlane[4].material().color4f().set(1f, 1f);
                 break;
             case '6':
-                _myFontPlane[5].material().color.set(1f, 1f);
+                _myFontPlane[5].material().color4f().set(1f, 1f);
                 break;
             case '7':
-                _myFontPlane[6].material().color.set(1f, 1f);
+                _myFontPlane[6].material().color4f().set(1f, 1f);
                 break;
             case '8':
-                _myFontPlane[7].material().color.set(1f, 1f);
+                _myFontPlane[7].material().color4f().set(1f, 1f);
                 break;
             case '9':
-                _myFontPlane[8].material().color.set(1f, 1f);
+                _myFontPlane[8].material().color4f().set(1f, 1f);
                 break;
         }
     }

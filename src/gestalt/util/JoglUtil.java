@@ -162,7 +162,7 @@ public class JoglUtil {
         theRenderer.framesetup().colorbufferclearing = false;
         Plane myPlane = theRenderer.drawablefactory().plane();
         myPlane.scale().set(theRenderer.displaycapabilities().width, theRenderer.displaycapabilities().height);
-        myPlane.material().color.set(1, 0.1f);
+        myPlane.material().color4f().set(1, 0.1f);
         myPlane.material().lit = false;
         myPlane.material().depthtest = false;
         theRenderer.bin(BIN_2D_FOREGROUND).add(myPlane);

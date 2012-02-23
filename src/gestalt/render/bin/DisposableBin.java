@@ -28,8 +28,8 @@ import gestalt.material.Color;
 import gestalt.material.Material;
 import gestalt.material.texture.Bitmap;
 import gestalt.render.Drawable;
-import gestalt.shape.Plane;
 import gestalt.shape.FastBitmapFont;
+import gestalt.shape.Plane;
 import gestalt.util.JoglUtil;
 
 import mathematik.Vector2f;
@@ -191,7 +191,7 @@ public class DisposableBin
             _myCustomPlane.position().set(myPlane.position);
             _myCustomPlane.scale().set(myPlane.scale);
             _myCustomPlane.rotation().set(myPlane.rotation);
-            _myCustomPlane.material().color.set(myPlane.color);
+            _myCustomPlane.material().color4f().set(myPlane.color);
             _myCustomPlane.draw(theRenderContext);
         }
 
@@ -284,7 +284,7 @@ public class DisposableBin
         }
     }
 
-    private final void drawPrimitives(final GL gl, boolean theWireFrame) {
+    private void drawPrimitives(final GL gl, boolean theWireFrame) {
         /* points */
         gl.glBegin(GL.GL_POINTS);
         for (int i = 0; i < _myPoints.size(); i++) {

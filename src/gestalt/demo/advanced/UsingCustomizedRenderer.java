@@ -56,7 +56,7 @@ public class UsingCustomizedRenderer
             _myPlanes[i].scale().set(400, 400);
             _myPlanes[i].position().z -= i * 400;
             _myPlanes[i].material().depthtest = true;
-            _myPlanes[i].material().color.set(0, i * 0.1f + 0.1f);
+            _myPlanes[i].material().color4f().set(0, i * 0.1f + 0.1f);
             bin(BIN_3D).add(_myPlanes[i]);
         }
     }

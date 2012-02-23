@@ -48,7 +48,7 @@ public class UsingEdgeBlending
 
         /* create cuboid */
         _myCube = drawablefactory().cuboid();
-        _myCube.material().color.set(1, 0, 0);
+        _myCube.material().color4f().set(1, 0, 0);
         _myCube.scale().set(100, 100, 100);
         bin(BIN_3D).add(_myCube);
     }

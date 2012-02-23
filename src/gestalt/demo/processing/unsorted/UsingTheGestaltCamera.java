@@ -68,7 +68,7 @@ public class UsingTheGestaltCamera
 
         /* create path view */
         _myLine = gestalt.drawablefactory().line();
-        _myLine.material().color.set(1, 0.5f, 0, 0.25f);
+        _myLine.material().color4f().set(1, 0.5f, 0, 0.25f);
         _myLine.material().depthmask = false; /* leave no trace in the depthbuffer */
         _myLine.linewidth = 5;
         _myLine.setPrimitive(Gestalt.LINE_PRIMITIVE_TYPE_LINE_LOOP);

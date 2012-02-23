@@ -59,7 +59,7 @@ public class UsingImageTextures
 
     public void setup() {
         /*
-         * change background color of window to white
+         * change background color4f of window to white
          * see also 'UsingDisplay'
          */
         displaycapabilities().backgroundcolor.set(1.0f);

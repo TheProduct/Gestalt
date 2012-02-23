@@ -49,7 +49,7 @@ public class QuadLinePDFTranslator
         final Vector3f myPointD = new Vector3f();
 
         theParent.g().setStroke(null);
-        theParent.g().setColor(_myQuadline.material().color.createAWTColor());
+        theParent.g().setColor(_myQuadline.material().color4f().createAWTColor());
 
         if (_myQuadline.getLineFragments().length > 1) {
             for (int i = 1; i < _myQuadline.getLineFragments().length; i++) {

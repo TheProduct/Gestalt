@@ -38,13 +38,15 @@ public class LessonXX_UsingBins
     public void setup() {
         size(640, 480, OPENGL);
         G5.setup(this);
-        bin = G5.default_bin();
+
+        /* this bin is by default BIN_3D. there are many different bins in gestalt for example BIN_2D_BACKGROUND, BIN_3D, or BIN_2D_FOREGROUND */
+        bin = G5.default_bin(); /* in this case the same as 'G5.gestalt().bin(Gestalt.BIN_3D)' */
 
         for (int i = 0; i < 10; i++) {
             Cuboid mCubeRed = new Cuboid();
             mCubeRed.scale(100, 100, 100);
             mCubeRed.position(width / 2, height / 2);
-            mCubeRed.material().color.set((float)i / 5.0f, 1, 0);
+            mCubeRed.material().color4f().set((float)i / 5.0f, 1, 0);
             bin.add(mCubeRed);
         }
 

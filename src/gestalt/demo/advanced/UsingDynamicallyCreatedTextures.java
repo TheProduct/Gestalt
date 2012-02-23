@@ -37,7 +37,7 @@ import gestalt.material.texture.bitmap.ByteBitmap;
  * 1. create a bitmap
  * 2. create texture and load bitmap into texture
  * 3. assign texture to plane
- * 4. set color values of bitmap
+ * 4. set color4f values of bitmap
  * 5. reload bitmap into texture
  *
  */
@@ -142,7 +142,7 @@ public class UsingDynamicallyCreatedTextures
         }
         /*
          * construct a pixel
-         * each pixel is defined through 4 bytes, 1 byte per color channel.
+         * each pixel is defined through 4 bytes, 1 byte per color4f channel.
          * so colors are assigned through byte values from -128..128 for
          * each channel.
          * in this case the resulting pixel is completely opaque and has
@@ -155,7 +155,7 @@ public class UsingDynamicallyCreatedTextures
         myPixel[ALPHA] = (byte) 255;
 
         /*
-         * there are two ways to assign color values to a pixel
+         * there are two ways to assign color4f values to a pixel
          * 1. overwrite a pixel through its coordinates in the bitmap
          * 2. change one specific colorcomponent of one pixel defined
          * through its coordinates in the bitmap

@@ -69,10 +69,10 @@ public class SmoothRing
             final float myInnerY = myCircleY[myIndex] * (1 - myEdgeWidthRatio) + 0.5f;
             final float myCenterX = myCircleX[myIndex] * (1 - myLineWidthRatio) + 0.5f;
             final float myCenterY = myCircleY[myIndex] * (1 - myLineWidthRatio) + 0.5f;
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myCenterX, myCenterY);
             gl.glVertex3f(myCenterX, myCenterY, 0);
             gl.glColor4f(mEdgeColor.r,
@@ -93,10 +93,10 @@ public class SmoothRing
             final float myCenterY = myCircleY[myIndex] * (1 + myLineWidthRatio) + 0.5f;
             final float myOuterX = myCircleX[myIndex] * (1 + myEdgeWidthRatio) + 0.5f;
             final float myOuterY = myCircleY[myIndex] * (1 + myEdgeWidthRatio) + 0.5f;
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myCenterX, myCenterY);
             gl.glVertex3f(myCenterX, myCenterY, 0);
             gl.glColor4f(mEdgeColor.r,
@@ -117,16 +117,16 @@ public class SmoothRing
             final float myInnerY = myCircleY[myIndex] * (1 - myLineWidthRatio) + 0.5f;
             final float myOuterX = myCircleX[myIndex] * (1 + myLineWidthRatio) + 0.5f;
             final float myOuterY = myCircleY[myIndex] * (1 + myLineWidthRatio) + 0.5f;
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myInnerX, myInnerY);
             gl.glVertex3f(myInnerX, myInnerY, 0);
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myOuterX, myOuterY);
             gl.glVertex3f(myOuterX, myOuterY, 0);
         }

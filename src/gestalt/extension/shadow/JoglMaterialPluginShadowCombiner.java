@@ -35,7 +35,7 @@ import gestalt.util.JoglUtil;
 
 /**
  * this plugin was written to be used with the shadow extension. it
- * blendes the shadow color in texture unit 1 with the color from
+ * blendes the shadow color4f in texture unit 1 with the color4f from
  * texture unit 0.
  */
 
@@ -199,7 +199,7 @@ public class JoglMaterialPluginShadowCombiner
             }
 
             // final combiner (fragment = A*B + (1-A)*C + D)
-            // Computer fragment color
+            // Computer fragment color4f
             // A: SPARE0
             // B: withTexture ? SPARE1 : primary_color
             // C: 0

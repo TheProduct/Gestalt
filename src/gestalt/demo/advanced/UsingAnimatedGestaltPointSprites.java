@@ -149,7 +149,7 @@ public class UsingAnimatedGestaltPointSprites
                 positionbackuparray[i * 3 + 1] = particles[i].position.y;
                 positionbackuparray[i * 3 + 2] = particles[i].position.z;
 
-                /* map color to backup array */
+                /* map color4f to backup array */
                 colorbackuparray[i * 4 + 0] = particles[i].color.r;
                 colorbackuparray[i * 4 + 1] = particles[i].color.g;
                 colorbackuparray[i * 4 + 2] = particles[i].color.b;

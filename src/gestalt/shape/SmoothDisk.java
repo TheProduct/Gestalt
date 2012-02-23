@@ -50,7 +50,7 @@ public class SmoothDisk
 
     public SmoothDisk() {
         material = new Material();
-        mEdgeColor.set(material.color);
+        mEdgeColor.set(material.color4f());
         mEdgeColor.a = 0.0f;
         mCompileIntoList = false;
     }
@@ -155,10 +155,10 @@ public class SmoothDisk
 //            final float myOuterY = myCircleY[myIndex] * (myEdgeWidthRatio) + 0.5f;
             final float myOuterX = myCircleX[myIndex] * (1 + myEdgeWidthRatio) + 0.5f;
             final float myOuterY = myCircleY[myIndex] * (1 + myEdgeWidthRatio) + 0.5f;
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myCenterX, myCenterY);
             gl.glVertex2f(myCenterX, myCenterY);
             gl.glColor4f(mEdgeColor.r,
@@ -172,10 +172,10 @@ public class SmoothDisk
 
         /* center */
         gl.glBegin(GL.GL_TRIANGLE_FAN);
-        gl.glColor4f(material.color.r,
-                     material.color.g,
-                     material.color.b,
-                     material.color.a);
+        gl.glColor4f(material.color4f().r,
+                     material.color4f().g,
+                     material.color4f().b,
+                     material.color4f().a);
         gl.glTexCoord2f(0.5f, 0.5f);
         gl.glVertex2f(0.5f, 0.5f);
         for (int i = 0; i < myCircleX.length; i++) {
@@ -185,17 +185,17 @@ public class SmoothDisk
             final float mNextPointY = myCircleY[myNextIndex] + 0.5f;
             final float myOuterX = myCircleX[i] + 0.5f;
             final float myOuterY = myCircleY[i] + 0.5f;
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(mNextPointX, mNextPointY);
             gl.glVertex2f(mNextPointX, mNextPointY);
 
-            gl.glColor4f(material.color.r,
-                         material.color.g,
-                         material.color.b,
-                         material.color.a);
+            gl.glColor4f(material.color4f().r,
+                         material.color4f().g,
+                         material.color4f().b,
+                         material.color4f().a);
             gl.glTexCoord2f(myOuterX, myOuterY);
             gl.glVertex2f(myOuterX, myOuterY);
         }

@@ -42,7 +42,7 @@ public class UsingTransparentShapes
         displaycapabilities().backgroundcolor.set(1);
 
         /*
-         * to make a plane transparent asign an alpha value to the plane color.
+         * to make a plane transparent asign an alpha value to the plane color4f.
          * alternativly a texture with an alpha channel can make a plane transparent.
          */
         _myTransparentPlanes = new Plane[3];
@@ -56,7 +56,7 @@ public class UsingTransparentShapes
              * experiment with this setting or read the opengl redbook.
              */
             _myTransparentPlanes[i].material().depthtest = true;
-            _myTransparentPlanes[i].material().color.set(0, i * 0.1f + 0.1f);
+            _myTransparentPlanes[i].material().color4f().set(0, i * 0.1f + 0.1f);
             bin(BIN_3D).add(_myTransparentPlanes[i]);
         }
     }

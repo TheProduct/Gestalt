@@ -110,7 +110,7 @@ public class UsingGLSLImageProcessing
         TexturePlugin myTexture = drawablefactory().texture();
         myTexture.load(Bitmaps.getBitmap(Resource.getStream("demo/common/cube.png")));
         _myCube.material().addPlugin(myTexture);
-        _myCube.material().color.set(1, 0, 0);
+        _myCube.material().color4f().set(1, 0, 0);
         bin(BIN_3D).add(_myCube);
     }
 

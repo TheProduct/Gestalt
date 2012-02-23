@@ -252,7 +252,7 @@ public class JoglLEDDisplayGPU
             myColors[i + 3] = 1.0f;
         }
 
-        /* setup 2 buffers for color and vertices */
+        /* setup 2 buffers for color4f and vertices */
         gl.glGenBuffers(_myVBOs.length, _myVBOs, 0);
 
         /* VERTEX */

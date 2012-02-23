@@ -76,7 +76,7 @@ public class TestJoglScreenSpaceAmbientOcclusion
         _myScene = new Sphere[20];
         for (int i = 0; i < _myScene.length; i++) {
             _myScene[i] = drawablefactory().sphere();
-            _myScene[i].material().color.set(1f,
+            _myScene[i].material().color4f().set(1f,
                                              1f,
                                              Math.round( (float) Math.random()),
                                              1f);

@@ -50,7 +50,7 @@ public class UsingShapes
 
     public void setup() {
         /*
-         * change background color of window to white
+         * change background color4f of window to white
          * see also 'UsingDisplay'
          */
         displaycapabilities().backgroundcolor.set(1);
@@ -92,9 +92,9 @@ public class UsingShapes
         _myPlane.origin(SHAPE_ORIGIN_CENTERED);
 
         /* a plane has a material. the material manages things like the shapes
-         * color, the transparency, the blendmode and the texture.
+         * color4f, the transparency, the blendmode and the texture.
          */
-        _myPlane.material().color.set(0.8f, 0.8f, 0.8f, 1f);
+        _myPlane.material().color4f().set(0.8f, 0.8f, 0.8f, 1f);
         _myPlane.material().transparent = true;
         _myPlane.material().colormasking = true;
 
@@ -106,10 +106,10 @@ public class UsingShapes
     private void createLine() {
         /* create a line with the drawablefactory */
         _myLine = drawablefactory().line();
-        _myLine.material().color.set(0f, 0f, 0f, 1f);
+        _myLine.material().color4f().set(0f, 0f, 0f, 1f);
 
         /* define the points of the line. a line can have an arbitrary
-         * number of points and each vertex can have its own color
+         * number of points and each vertex can have its own color4f
          */
         _myLine.points = new Vector3f[500];
         _myLine.colors = new Color[500];

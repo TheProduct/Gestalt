@@ -66,7 +66,7 @@ public class UsingAccumulationBuffer
         Plane myPlane = drawablefactory().plane();
         myPlane.scale().set(2000, 2000);
         myPlane.rotation().x = PI_HALF;
-        myPlane.material().color.set(1, 0, 0, 1);
+        myPlane.material().color4f().set(1, 0, 0, 1);
         _myCubeBin.add(myPlane);
 
         /* accumulation buffer */

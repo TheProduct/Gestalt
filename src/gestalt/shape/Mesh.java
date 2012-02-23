@@ -267,7 +267,7 @@ public class Mesh
                 }
                 myTexCoordIndex += _myNumberOfTexCoordComponents;
             }
-            /* color */
+            /* color4f */
             if (_myColors != null
                     && _myColors.length != 0) {
                 if (_myNumberOfColorComponents == 3) {

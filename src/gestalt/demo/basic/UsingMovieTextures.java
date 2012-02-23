@@ -124,7 +124,7 @@ public class UsingMovieTextures
         _mySecondMovieProducer.setLooping(true);
         _mySecondMovieTexture.load(_mySecondMovieProducer.getBitmap());
         _mySecondMoviePlane.material().addPlugin(_mySecondMovieTexture);
-        _mySecondMoviePlane.material().color.set(0.6f, 0.6f, 0.6f, 1f);
+        _mySecondMoviePlane.material().color4f().set(0.6f, 0.6f, 0.6f, 1f);
         _mySecondMoviePlane.setPlaneSizeToTextureSize();
         _mySecondMoviePlane.scale().scale(4);
         bin(BIN_3D).add(_mySecondMoviePlane);

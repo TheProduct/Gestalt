@@ -99,7 +99,7 @@ public class UsingGPGPU3DParticles
         myParticleDrawer.material().addTexture(myPointSprites);
         myParticleDrawer.material().blendmode = MATERIAL_BLEND_INVERS_MULTIPLY;
         myParticleDrawer.material().depthtest = false;
-        myParticleDrawer.material().color.set(1.0f, 0.1f);
+        myParticleDrawer.material().color4f().set(1.0f, 0.1f);
 
         bin(BIN_3D).add(myParticleDrawer);
     }

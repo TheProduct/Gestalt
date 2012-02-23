@@ -61,7 +61,7 @@ public class UsingBillboards
             _myImagePlane[i] = drawablefactory().plane();
             _myImagePlane[i].material().addPlugin(myImageTexture);
             _myImagePlane[i].material().blendmode = MATERIAL_BLEND_INVERS_MULTIPLY;
-            _myImagePlane[i].material().color.set(1, 0.1f);
+            _myImagePlane[i].material().color4f().set(1, 0.1f);
             _myImagePlane[i].material().depthtest = false;
             _myImagePlane[i].setPlaneSizeToTextureSize();
             final float myPercent = (float) (i + 1) / (float) _myImagePlane.length;

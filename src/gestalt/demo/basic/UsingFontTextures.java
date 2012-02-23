@@ -21,18 +21,15 @@
  */
 package gestalt.demo.basic;
 
-import gestalt.render.AnimatorRenderer;
-import gestalt.shape.Plane;
 import gestalt.material.TexturePlugin;
 import gestalt.material.texture.Bitmaps;
 import gestalt.material.texture.FontProducer;
+import gestalt.render.AnimatorRenderer;
+import gestalt.shape.Plane;
 
 import mathematik.Vector2i;
 
 import data.Resource;
-import gestalt.material.texture.bitmap.ByteBitmap;
-import gestalt.util.ImageUtil;
-import java.awt.image.BufferedImage;
 
 
 /**
@@ -105,7 +102,7 @@ displaycapabilities().backgroundcolor.set(1f,0,0,1f);
         _myFontPlane.setPlaneSizeToTextureSize();
         
         /* set blend mode */
-        _myFontPlane.material().color.a = 1f;
+        _myFontPlane.material().color4f().a = 1f;
 //        _myFontPlane.material().blendmode = MATERIAL_BLEND_INVERS_MULTIPLY;
         _myFontPlane.origin(SHAPE_ORIGIN_CENTERED);
         
@@ -115,7 +112,7 @@ displaycapabilities().backgroundcolor.set(1f,0,0,1f);
         /* create second plane */
         Plane myFontPlane = drawablefactory().plane();
         myFontPlane.material().addPlugin(_myFontTexture);
-        myFontPlane.material().color.a = 0.5f;
+        myFontPlane.material().color4f().a = 0.5f;
 //        myFontPlane.material().blendmode = MATERIAL_BLEND_INVERS_MULTIPLY;
         myFontPlane.setPlaneSizeToTextureSize();
         bin(BIN_3D).add(myFontPlane);

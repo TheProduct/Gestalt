@@ -28,11 +28,11 @@ import gestalt.context.Display;
 import gestalt.context.DisplayCapabilities;
 import gestalt.context.GLContext;
 import gestalt.input.EventHandler;
+import gestalt.material.texture.bitmap.IntegerBitmap;
 import gestalt.render.BasicRenderer;
 import gestalt.render.bin.RenderBin;
 import gestalt.render.controller.Camera;
 import gestalt.shape.DrawableFactory;
-import gestalt.material.texture.bitmap.IntegerBitmap;
 import gestalt.util.CameraMover;
 import gestalt.util.FPSCounter;
 import gestalt.util.JoglUtil;
@@ -44,14 +44,10 @@ import processing.core.PGraphics;
 import processing.core.PImage;
 import processing.opengl.PGraphicsOpenGL;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.DisplayMode;
 import java.awt.Frame;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Panel;
-import java.awt.Rectangle;
 import java.util.Vector;
 
 import javax.media.opengl.GL;

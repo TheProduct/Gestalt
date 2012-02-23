@@ -53,7 +53,7 @@ public class UsingTransformNodes
         _myLocalCube = drawablefactory().cuboid();
         _myLocalCube.scale().set(100, 100, 100);
         _myLocalCube.material().lit = true;
-        _myLocalCube.material().color.set(1, 0, 0, 0.5f);
+        _myLocalCube.material().color4f().set(1, 0, 0, 0.5f);
         _myLocalCube.material().depthtest = false;
         _myLocalCube.position().set(_myLocalCube.scale());
         _myLocalCube.position().scale(0.5f);
@@ -62,7 +62,7 @@ public class UsingTransformNodes
         _myWorldPosition = drawablefactory().sphere();
         _myWorldPosition.scale().set(5, 5, 5);
         _myWorldPosition.material().lit = true;
-        _myWorldPosition.material().color.set(1);
+        _myWorldPosition.material().color4f().set(1);
         _myWorldPosition.material().depthtest = false;
         bin(BIN_3D).add(_myWorldPosition);
     }

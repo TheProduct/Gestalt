@@ -24,7 +24,6 @@
 package gestalt.demo.processing;
 
 import gestalt.processing.G5;
-import gestalt.render.bin.Bin;
 import gestalt.shape.Sphere;
 
 import processing.core.PApplet;
@@ -43,7 +42,7 @@ public class LessonXX_MixingProcessingAndGestalt
         mCube = G5.sphere();
         mCube.scale(100, 100, 100);
         mCube.position(width / 2, height / 2);
-        mCube.material().color.set(0, 0.5f, 1.0f);
+        mCube.material().color4f().set(0, 0.5f, 1.0f);
         mCube.setSegments(8);
     }
 

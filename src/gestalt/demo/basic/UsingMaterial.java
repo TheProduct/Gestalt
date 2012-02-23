@@ -47,11 +47,11 @@ public class UsingMaterial
         displaycapabilities().backgroundcolor.set(1);
 
         createPlane();
-        _myPlane.material().color.set(0.8f, 0.8f, 0.8f, 1f);
+        _myPlane.material().color4f().set(0.8f, 0.8f, 0.8f, 1f);
         _myPlane.material().transparent = true;
 
         createLine();
-        _myLine.material().color.set(0f, 0f, 0f, 1f);
+        _myLine.material().color4f().set(0f, 0f, 0f, 1f);
         _myLine.linewidth = 5;
         _myLine.smooth = true;
         _myLine.stipple = true;

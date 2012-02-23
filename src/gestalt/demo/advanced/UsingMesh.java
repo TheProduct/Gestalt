@@ -89,7 +89,7 @@ public class UsingMesh
                 myVertices[myIndex * 3 + 1] =
                     y * myScale.y + VERTEX_Y_ORDER[j] * myScale.y - displaycapabilities().height / 2;
                 myVertices[myIndex * 3 + 2] = 0;
-                /* vertex color */
+                /* vertex color4f */
                 myColors[myIndex * 3 + 0] = 1;
                 myColors[myIndex * 3 + 1] = 1;
                 myColors[myIndex * 3 + 2] = 1;

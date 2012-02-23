@@ -120,7 +120,7 @@ public class UsingPicking
             myTexture.load(Bitmaps.getBitmap(Resource.getStream("demo/common/auto.png")));
             _myPlane = drawablefactory().plane();
             _myPlane.scale().set(128, 128);
-            _myPlane.material().color.set(1);
+            _myPlane.material().color4f().set(1);
             _myPlane.material().addPlugin(myTexture);
             _myPlane.material().depthmask = true;
             _myPlane.material().depthtest = false;
@@ -146,19 +146,19 @@ public class UsingPicking
 
         public void mouseEnter() {
             isPicked = true;
-            _myPlane.material().color.set(0.5f);
+            _myPlane.material().color4f().set(0.5f);
         }
 
 
         public void mouseLeave() {
             isPicked = false;
-            _myPlane.material().color.set(1);
+            _myPlane.material().color4f().set(1);
         }
 
 
         public void mouseWithin() {
             isPicked = true;
-            _myPlane.material().color.set(0);
+            _myPlane.material().color4f().set(0);
         }
 
 

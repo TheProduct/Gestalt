@@ -43,7 +43,7 @@ import data.Resource;
  * 1. create texture and load bitmap into texture<br/>
  * 2. assign texture to plane<br/>
  * 3. get instance from BitmapFilter<br/>
- * 4. perform filtering and/or color curving on bitmap
+ * 4. perform filtering and/or color4f curving on bitmap
  *
  */
 
@@ -106,13 +106,13 @@ public class UsingBitmapFilter
         myBitmapFilter.gaussianblur( (ByteBitmap) _myImageTexture.bitmap(), 5);
 
         /*
-         * after blurring the image, we adjust the color values of the bitmap
+         * after blurring the image, we adjust the color4f values of the bitmap
          * by calling the curve() method with the bitmap and an interpolator.
          * interpolators are used to transform values between 0..1 in a specific
          * way. here these values are transformed through a bezier curve, that
          * is defined by two handles.
          * this bezier-interpolator is then used in the curve() method to
-         * alter the color values
+         * alter the color4f values
          */
         Interpolator myInterpolator;
         myInterpolator = new Interpolator(0.0f, 1.0f, new InterpolateBezier(3.0f, -1.0f));

@@ -241,7 +241,7 @@ public abstract class JoglPBOIndexedMesh
                         GL.GL_STREAM_COPY);
         gl.glBindBuffer(GL.GL_ARRAY_BUFFER, 0);
 
-        /* create color buffers */
+        /* create color4f buffers */
         if (USE_COLORS) {
             _myColorBuffer = tmp[myIndexCounter];
             myIndexCounter++;

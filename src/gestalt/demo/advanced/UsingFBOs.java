@@ -60,7 +60,7 @@ public class UsingFBOs
 
         /* create cuboid */
         _myCube = drawablefactory().cuboid();
-        _myCube.material().color.set(0.75f);
+        _myCube.material().color4f().set(0.75f);
         _myCube.scale().set(300, 100, 100);
         bin(BIN_3D).add(_myCube);
 

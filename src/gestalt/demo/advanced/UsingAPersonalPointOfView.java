@@ -73,7 +73,7 @@ public class UsingAPersonalPointOfView
             myCube.scale().y = 100;
             myCube.scale().z = 100 - Math.abs(myCube.position().z) * 0.1f;
             myCube.material().lit = true;
-            myCube.material().color.set(1, 0, 0);
+            myCube.material().color4f().set(1, 0, 0);
             mySharedBin.add(myCube);
         }
 
@@ -94,7 +94,7 @@ public class UsingAPersonalPointOfView
 
         /* create a display for the personal point of view */
         _myEgoDisplay = drawablefactory().plane();
-        _myEgoDisplay.material().color.set(1, 0.5f, 0.5f, 0.75f);
+        _myEgoDisplay.material().color4f().set(1, 0.5f, 0.5f, 0.75f);
         _myEgoDisplay.material().addPlugin(_myPersonalView.texture());
         _myEgoDisplay.setPlaneSizeToTextureSize();
         _myEgoDisplay.origin(SHAPE_ORIGIN_TOP_LEFT);

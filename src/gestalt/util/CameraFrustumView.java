@@ -56,7 +56,7 @@ public class CameraFrustumView
 
         /* frustum pyramid */
         _myFrustumLines = drawablefactory.line();
-        _myFrustumLines.material().color.set(1);
+        _myFrustumLines.material().color4f().set(1);
         _myFrustumLines.setPrimitive(Gestalt.LINE_PRIMITIVE_TYPE_LINES);
         _myFrustumLines.points = new Vector3f[] {
                                  new Vector3f(),
@@ -91,7 +91,7 @@ public class CameraFrustumView
         _myViewPlane.material().depthtest = true;
         _myViewPlane.material().depthmask = false;
         _myViewPlane.material().wireframe = true;
-        _myViewPlane.material().color.set(1, 0.5f, 0);
+        _myViewPlane.material().color4f().set(1, 0.5f, 0);
     }
 
 

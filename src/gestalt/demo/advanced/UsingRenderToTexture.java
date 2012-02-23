@@ -23,17 +23,16 @@
 
 package gestalt.demo.advanced;
 
-
-import gestalt.render.controller.FrameBufferCopy;
-import gestalt.render.AnimatorRenderer;
-import gestalt.shape.Cuboid;
-import gestalt.shape.Plane;
 import gestalt.material.TexturePlugin;
 import gestalt.material.texture.bitmap.IntegerBitmap;
+import gestalt.render.AnimatorRenderer;
+import gestalt.render.controller.FrameBufferCopy;
+import gestalt.shape.Cuboid;
+import gestalt.shape.Plane;
 
 
 public class UsingRenderToTexture
-    extends AnimatorRenderer {
+        extends AnimatorRenderer {
 
     private Cuboid _myCube;
 
@@ -44,8 +43,6 @@ public class UsingRenderToTexture
         /* gestalt */
         framerate(30);
         displaycapabilities().backgroundcolor.set(0.2f, 0);
-        int width = displaycapabilities().width;
-        int height = displaycapabilities().height;
 
         /* create an empty dummy bitmap */
         TexturePlugin myTexture = drawablefactory().texture();
@@ -61,7 +58,7 @@ public class UsingRenderToTexture
         _myPlane.material().depthtest = false;
         _myPlane.material().depthmask = false;
         _myPlane.material().blendmode = MATERIAL_BLEND_INVERS_MULTIPLY;
-        _myPlane.material().color.a = 0.99f;
+        _myPlane.material().color4f().a = 0.99f;
         _myPlane.scale().set(width, height);
         _myPlane.scale().scale(0.98f);
         bin(BIN_3D).add(_myPlane);
@@ -80,7 +77,6 @@ public class UsingRenderToTexture
         bin(BIN_2D_FOREGROUND).add(myFrameBufferCopy);
     }
 
-
     public void loop(float theDeltaTime) {
         _myCube.rotation().x += 0.9f * theDeltaTime;
         _myCube.rotation().y += 0.6f * theDeltaTime;
@@ -88,7 +84,6 @@ public class UsingRenderToTexture
         /* stick textured plane to mouse */
         _myPlane.position().set(event().mouseX * 0.25f, event().mouseY * 0.25f);
     }
-
 
     public static void main(String[] args) {
         new UsingRenderToTexture().init();

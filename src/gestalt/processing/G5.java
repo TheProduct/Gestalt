@@ -154,6 +154,7 @@ public class G5
 
     /* fullscreen */
     public static void fullscreen(boolean theSwitchResolution) {
+        System.err.println("### WARNING / fullscreen() is under construction and probably does not work.");
         if (die()) {
             return;
         }

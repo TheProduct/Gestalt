@@ -62,7 +62,7 @@ public class JoglShadowMapDisplay
         /* deactivate compare mode */
         gl.glTexParameteri(_myTextureTargetID, GL.GL_TEXTURE_COMPARE_MODE, 0);
 
-        gl.glColor4f(material.color.r, material.color.g, material.color.b, material.color.a);
+        gl.glColor4f(material.color4f().r, material.color4f().g, material.color4f().b, material.color4f().a);
         gl.glDisable(GL.GL_LIGHTING);
 
         gl.glPushMatrix();

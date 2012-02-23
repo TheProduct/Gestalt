@@ -62,7 +62,7 @@ public class UsingArcBall
 
         Plane p = G.plane();
         p.scale(width, height);
-        p.material().color.set(0, 0.5f, 1.0f, 0.25f);
+        p.material().color4f().set(0, 0.5f, 1.0f, 0.25f);
     }
 
     public static void main(String[] args) {

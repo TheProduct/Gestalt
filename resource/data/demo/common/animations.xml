@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<animations>
+<animation name="one" start="0" stop="0" />
+<animation name="two" start="1" stop="1" />
+<animation name="three" start="0" stop="99" />
+</animations>

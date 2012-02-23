@@ -214,7 +214,7 @@ public class MeshVBO
                                    myBuffer);
             }
         }
-        /* color */
+        /* color4f */
         if (_myColors != null) {
             gl.glEnableClientState(GL.GL_COLOR_ARRAY);
             if (_myVBOsupported) {
@@ -412,7 +412,7 @@ public class MeshVBO
                                 FloatBuffer.wrap(_myVertices),
                                 myUsageType);
             }
-            /* color */
+            /* color4f */
             if (_myColors != null) {
                 /** @todo JSR-231 performance hit? */
                 gl.glBindBuffer(GL.GL_ARRAY_BUFFER,
@@ -468,7 +468,7 @@ public class MeshVBO
                         myBuffer.rewind();
                         unmapBuffer(gl, _myBufferIDs[VERTEX_POINTER]);
                     }
-                    /* color */
+                    /* color4f */
                     if (_myUseColors) {
                         FloatBuffer myBuffer = mapBuffer(gl, _myBufferIDs[COLOR_POINTER]);
                         myBuffer.put(_myColors);

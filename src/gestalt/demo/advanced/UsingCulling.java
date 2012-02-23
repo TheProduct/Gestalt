@@ -59,7 +59,7 @@ public class UsingCulling
                     new Random().getFloat(-displaycapabilities().width / 2, displaycapabilities().width / 2),
                     new Random().getFloat(-displaycapabilities().height / 2, displaycapabilities().height / 2),
                     new Random().getFloat(0, 500));
-            _myTransparentPlanes[i].material().color.set(1, new Random().getFloat(0.25f, 0.75f));
+            _myTransparentPlanes[i].material().color4f().set(1, new Random().getFloat(0.25f, 0.75f));
             bin(BIN_3D).add(_myTransparentPlanes[i]);
         }
 

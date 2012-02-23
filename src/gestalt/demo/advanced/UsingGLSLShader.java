@@ -71,7 +71,7 @@ public class UsingGLSLShader
                     }
                 };
                 myShadedPlane.material().addPlugin(myShaderMaterial);
-                myShadedPlane.material().color.set(1f, 1, 0, 1f);
+                myShadedPlane.material().color4f().set(1f, 1, 0, 1f);
                 bin(BIN_3D).add(myShadedPlane);
             }
         }

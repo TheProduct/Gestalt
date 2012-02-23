@@ -77,7 +77,7 @@ public class TestBumpMappingGLSL
 
         NormalMapMaterial _myShaderMaterial = new NormalMapMaterial(myShaderManager, myShaderProgram);
 
-        /* create a color map */
+        /* create a color4f map */
         TexturePlugin myNormalMap = drawablefactory().texture();
         myNormalMap.setFilterType(TEXTURE_FILTERTYPE_MIPMAP);
         myNormalMap.load(Bitmaps.getBitmap(Resource.getStream("demo/common/normal_map3.png")));

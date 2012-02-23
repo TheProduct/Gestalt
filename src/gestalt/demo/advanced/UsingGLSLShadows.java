@@ -80,7 +80,7 @@ public class UsingGLSLShadows
         mySphereA.position().set(100, 50, -100);
         mySphereA.scale().set(100, 100, 100);
         mySphereA.material().lit = true;
-        mySphereA.material().color.set(1, 0, 0, 1);
+        mySphereA.material().color4f().set(1, 0, 0, 1);
         mySphereA.material().addPlugin(new JoglGLSLShadowMaterial4ud(_myShaderManager,
                                                                      _myShaderProgram,
                                                                      _myShadowMapExtension,
@@ -90,7 +90,7 @@ public class UsingGLSLShadows
         mySphereB.position().set(0, 100, 0);
         mySphereB.scale().set(100, 100, 100);
         mySphereB.material().lit = true;
-        mySphereB.material().color.set(1, 0, 0, 1);
+        mySphereB.material().color4f().set(1, 0, 0, 1);
         mySphereB.material().addPlugin(new JoglGLSLShadowMaterial4ud(_myShaderManager,
                                                                      _myShaderProgram,
                                                                      _myShadowMapExtension,
@@ -104,7 +104,7 @@ public class UsingGLSLShadows
         mySphereC.position().set(100, 350, 0);
         mySphereC.scale().set(100, 100, 100);
         mySphereC.material().lit = true;
-        mySphereC.material().color.set(1, 0.5f, 0, 1);
+        mySphereC.material().color4f().set(1, 0.5f, 0, 1);
         mySphereC.material().addPlugin(new JoglGLSLShadowMaterial4ud(_myShaderManager,
                                                                      _myShaderProgram,
                                                                      _myShadowMapExtension,
@@ -116,7 +116,7 @@ public class UsingGLSLShadows
         myPlane.position( -500, 0, 500);
         myPlane.rotation().x = -PI_HALF;
         myPlane.material().lit = true;
-        myPlane.material().color.set(1, 1, 1, 1);
+        myPlane.material().color4f().set(1, 1, 1, 1);
         myPlane.material().normalizenormals = true;
         myPlane.material().transparent = true;
         myPlane.material().addPlugin(new JoglGLSLShadowMaterial4ud(_myShaderManager,

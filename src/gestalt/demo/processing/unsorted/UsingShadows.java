@@ -78,25 +78,25 @@ public class UsingShadows
         mySphereA.position().set(100, 50, -100);
         mySphereA.scale().set(100, 100, 100);
         mySphereA.material().lit = true;
-        mySphereA.material().color.set(0.5f, 0.5f, 0, 1);
+        mySphereA.material().color4f().set(0.5f, 0.5f, 0, 1);
 
         mySphereB = new Sphere();
         mySphereB.position().set(0, 100, 0);
         mySphereB.scale().set(100, 100, 100);
         mySphereB.material().lit = true;
-        mySphereB.material().color.set(1, 0, 0, 1);
+        mySphereB.material().color4f().set(1, 0, 0, 1);
 
         mySphereC = new Sphere();
         mySphereC.position().set(100, 350, 0);
         mySphereC.scale().set(100, 100, 100);
         mySphereC.material().lit = true;
-        mySphereC.material().color.set(1, 0.5f, 0, 1);
+        mySphereC.material().color4f().set(1, 0.5f, 0, 1);
 
         Plane myPlane = gestalt.drawablefactory().plane();
         myPlane.scale().set(1000, 1000, 1);
         myPlane.rotation().x = -Gestalt.PI_HALF;
         myPlane.material().lit = true;
-        myPlane.material().color.set(1, 1);
+        myPlane.material().color4f().set(1, 1);
 
         /* add shapes to bins */
         gestalt.bin(Gestalt.BIN_3D).add(mySphereA);
@@ -131,7 +131,7 @@ public class UsingShadows
         myDisplay.scale().scale(0.25f);
         myDisplay.position().x = myDisplay.scale().x / 2;
         myDisplay.position().y = myDisplay.scale().y / 2;
-        myDisplay.material().color.a = 0.75f;
+        myDisplay.material().color4f().a = 0.75f;
         myDisplay.material().depthtest = false;
         gestalt.bin(Gestalt.BIN_2D_FOREGROUND).add(myDisplay);
     }

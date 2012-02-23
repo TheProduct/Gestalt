@@ -68,14 +68,14 @@ public class UsingGlur
             _myCube[i].rotation().x = TWO_PI * -i / (float)_myCube.length;
             _myCube[i].rotation().y = TWO_PI * i / (float)_myCube.length;
             _myCube[i].rotation().z = TWO_PI * -i / (float)_myCube.length;
-            _myCube[i].material().color.set(0, 0.5f, 1, 0.05f);
+            _myCube[i].material().color4f().set(0, 0.5f, 1, 0.05f);
             _myCube[i].scale().set(500, 10, 10);
             _myBlurContext.bin().add(_myCube[i]);
         }
 
         /* create cuboid and add it to shape FBO */
         Cuboid myCube = drawablefactory().cuboid();
-        myCube.material().color.set(1);
+        myCube.material().color4f().set(1);
         myCube.scale().set(200, 200, 200);
         myCube.rotation().set(0.2, 0.5, 1.2);
         _myBlurContext.bin().add(myCube);
@@ -112,8 +112,8 @@ public class UsingGlur
         } else {
             _myBlurContext.blurdisplay().position().set(0, 0);
         }
-        _myBlurContext.shapedisplay().material().color.set(1, 0.7f);
-        _myBlurContext.blurdisplay().material().color.set(1, 0.9f);
+        _myBlurContext.shapedisplay().material().color4f().set(1, 0.7f);
+        _myBlurContext.blurdisplay().material().color4f().set(1, 0.9f);
     }
 
     public static void main(String[] args) {

@@ -98,7 +98,7 @@ public class SoftEdger
         float myMiddle = _myBlendArea / 2f / _myScale.y;
 
         // bottom
-        gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, _myMaterial.color.a);
+        gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, _myMaterial.color4f().a);
 
         gl.glTexCoord2f(0, 0);
         gl.glVertex3f(_myPosition.x - _myScale.x / 2f, _myPosition.y - _myScale.y / 2f - _myBlendArea, 0);
@@ -124,25 +124,25 @@ public class SoftEdger
             float myStartUV = (0.5f - myMiddle) + ( (float) i / _myBlendResolution * myMiddle * 2);
             float myEndUV = (0.5f - myMiddle) + ( (float) (i + 1) / _myBlendResolution * myMiddle * 2);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myStartAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myStartAlpha);
             gl.glTexCoord2f(0, -myStartUV);
             gl.glVertex3f(_myPosition.x - _myScale.x / 2f, myStartPos, 0);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myEndAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myEndAlpha);
             gl.glTexCoord2f(0, -myEndUV);
             gl.glVertex3f(_myPosition.x - _myScale.x / 2f, myEndPos, 0f);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myEndAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myEndAlpha);
             gl.glTexCoord2f(1, -myEndUV);
             gl.glVertex3f(_myPosition.x + _myScale.x / 2f, myEndPos, 0);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myStartAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myStartAlpha);
             gl.glTexCoord2f(1, -myStartUV);
             gl.glVertex3f(_myPosition.x + _myScale.x / 2f, myStartPos, 0);
         }
 
         // top
-        gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, _myMaterial.color.a);
+        gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, _myMaterial.color4f().a);
 
         gl.glTexCoord2f(0, -1f);
         gl.glVertex3f(_myPosition.x - _myScale.x / 2f, _myPosition.y + _myScale.y / 2f + _myBlendArea, 0);
@@ -168,19 +168,19 @@ public class SoftEdger
             float myStartUV = (0.5f + myMiddle) - ( (float) i / _myBlendResolution * myMiddle * 2);
             float myEndUV = (0.5f + myMiddle) - ( (float) (i + 1) / _myBlendResolution * myMiddle * 2);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myStartAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myStartAlpha);
             gl.glTexCoord2f(0, -myStartUV);
             gl.glVertex3f(_myPosition.x - _myScale.x / 2f, myStartPos, 0);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myEndAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myEndAlpha);
             gl.glTexCoord2f(0, -myEndUV);
             gl.glVertex3f(_myPosition.x - _myScale.x / 2f, myEndPos, 0f);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myEndAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myEndAlpha);
             gl.glTexCoord2f(1, -myEndUV);
             gl.glVertex3f(_myPosition.x + _myScale.x / 2f, myEndPos, 0);
 
-            gl.glColor4f(_myMaterial.color.r, _myMaterial.color.g, _myMaterial.color.b, myStartAlpha);
+            gl.glColor4f(_myMaterial.color4f().r, _myMaterial.color4f().g, _myMaterial.color4f().b, myStartAlpha);
             gl.glTexCoord2f(1, -myStartUV);
             gl.glVertex3f(_myPosition.x + _myScale.x / 2f, myStartPos, 0);
         }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<displaycapabilities
+  name="gestalt"
+  screenwidth="640"
+  screenheight="480"
+  undecorated="false"
+  fullscreen="false"
+  centered="true"
+  background_r="0.2"
+  background_g="0.2"
+  background_b="0.2"
+  background_a="1"
+  anitaliasinglevel="0"
+  cursor="true"
+  headless="false"
+  switchresolution="true"
+  renderer="jogl"/>
+

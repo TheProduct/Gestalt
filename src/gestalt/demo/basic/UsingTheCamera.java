@@ -91,7 +91,7 @@ public class UsingTheCamera
             _myFontTexture[i].load(_myFontProducer.getBitmap("***** " + i + " *****"));
 
             _myFontPlane[i] = drawablefactory().plane();
-            _myFontPlane[i].material().color.set( (float) i / (float) _myFontPlane.length);
+            _myFontPlane[i].material().color4f().set( (float) i / (float) _myFontPlane.length);
             _myFontPlane[i].material().depthtest = false;
             _myFontPlane[i].material().addPlugin(_myFontTexture[i]);
             _myFontPlane[i].setPlaneSizeToTextureSize();

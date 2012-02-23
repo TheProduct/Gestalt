@@ -24,7 +24,6 @@
 package gestalt.material;
 
 import gestalt.context.GLContext;
-import gestalt.context.GLContext;
 import gestalt.material.texture.Bitmap;
 
 import java.io.Serializable;
@@ -46,7 +45,7 @@ public class Material
 
     public boolean enabled;
 
-    public Color color;
+    private Color mColor;
 
     /** @todo maybe move this to texture. */
     public boolean wireframe;
@@ -101,7 +100,7 @@ public class Material
 
     public Material() {
         enabled = true;
-        color = new Color();
+        mColor = new Color();
         wireframe = false;
         depthtest = true;
         depthmask = true;
@@ -116,7 +115,7 @@ public class Material
         lit = false;
         /*
          * materials must be initialized on the client side as long as 'diffuse'
-         * is null material attempts to use the vertex color as the diffuse
+         * is null material attempts to use the vertex color4f as the diffuse
          * property, the state of the other properties is undefined.
          *
          * default opengl values
@@ -141,7 +140,7 @@ public class Material
     }
 
     public Color getColor() {
-        return color;
+        return color4f();
     }
 
 
@@ -437,24 +436,24 @@ public class Material
      */
 
     /*
-     * NAME glColorMaterial - cause a material color to track the current color
+     * NAME glColorMaterial - cause a material color4f to track the current color4f
      *
      * C SPECIFICATION void glColorMaterial( GLenum face, GLenum mode )
      *
      * PARAMETERS face Specifies whether front, back, or both front and back
-     * material parameters should track the current color. Accepted values are
+     * material parameters should track the current color4f. Accepted values are
      * GL_FRONT, GL_BACK, and GL_FRONT_AND_BACK. The initial value is
      * GL_FRONT_AND_BACK.
      *
      * mode Specifies which of several material parameters track the current
-     * color. Accepted values are GL_EMISSION, GL_AMBIENT, GL_DIFFUSE,
+     * color4f. Accepted values are GL_EMISSION, GL_AMBIENT, GL_DIFFUSE,
      * GL_SPECULAR, and GL_AMBIENT_AND_DIFFUSE. The initial value is
      * GL_AMBIENT_AND_DIFFUSE.
      *
      * DESCRIPTION glColorMaterial specifies which material parameters track the
-     * current color. When GL_COLOR_MATERIAL is enabled, the material parameter
+     * current color4f. When GL_COLOR_MATERIAL is enabled, the material parameter
      * or parameters specified by mode, of the material or materials specified
-     * by face, track the current color at all times.
+     * by face, track the current color4f at all times.
      *
      * To enable and disable GL_COLOR_MATERIAL, call glEnable and glDisable with
      * argument GL_COLOR_MATERIAL. GL_COLOR_MATERIAL is initially dis- abled.
@@ -468,15 +467,15 @@ public class Material
      * Call glColorMaterial before enabling GL_COLOR_MATERIAL.
      *
      * Calling glDrawElements, glDrawArrays, or glDrawRangeElements may leave
-     * the current color indeterminate, if the color array is enabled. If
-     * glColorMaterial is enabled while the current color is indeterminate, the
+     * the current color4f indeterminate, if the color4f array is enabled. If
+     * glColorMaterial is enabled while the current color4f is indeterminate, the
      * lighting material state specified by face and mode is also indeter-
      * minate.
      *
      * If the GL version is 1.1 or greater, and GL_COLOR_MATERIAL is enabled,
-     * evaluated color values affect the results of the lighting equation as if
-     * the current color were being modified, but no change is made to the
-     * tracking lighting parameter of the current color.
+     * evaluated color4f values affect the results of the lighting equation as if
+     * the current color4f were being modified, but no change is made to the
+     * tracking lighting parameter of the current color4f.
      *
      */
     private void beginDepthtesting() {
@@ -492,7 +491,7 @@ public class Material
     }
 
     private void beginColor() {
-        gl.glColor4f(color.r, color.g, color.b, color.a);
+        gl.glColor4f(color4f().r, color4f().g, color4f().b, color4f().a);
     }
 
     private void beginLight() {
@@ -540,5 +539,9 @@ public class Material
         if (wireframe) {
             gl.glPolygonMode(GL.GL_FRONT_AND_BACK, GL.GL_FILL);
         }
+    }
+
+    public Color color4f() {
+        return mColor;
     }
 }

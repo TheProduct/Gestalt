@@ -24,6 +24,7 @@
 package gestalt.demo.processing;
 
 import gestalt.Gestalt;
+import gestalt.model.Model;
 import gestalt.processing.G5;
 import gestalt.shape.Cuboid;
 
@@ -38,6 +39,8 @@ public class Lesson00_GettingStarted
 
     Cuboid mCube;
 
+    Model mModel;
+
     public void setup() {
         size(640, 480, OPENGL); /* gestalt obviously needs an OpenGL sketch to run properly */
 
@@ -47,11 +50,11 @@ public class Lesson00_GettingStarted
         mCube.scale(100, 100, 100); /* shapes usually have at least a scale (i.e. size ) and a position */
         mCube.position(width / 2, height / 2); /* by default gestalt uses the coordinate system like processing */
 
+        mModel = G5.model(createInput("person.obj"), createInput("person.png")); /* use data.Resource to locate files. */
+
         /* this is a selection of other easy to use shapes. For a complete list of prefabbed shapes look into 'gestalt.shape', 'gestalt.extension', and 'gestalt.candidates' */
         G5.disk();
-        G5.mesh(false, new float[] {300, 200, 0, 340, 280, 0, 300, 280, 0}, Gestalt.MESH_TRIANGLES);
-//        G5.model(createInput("person.obj"),
-//                 createInput("person.png"));
+        G5.mesh(false, new float[] {300, 200, 0, 340, 200, 0, 320, 280, 0}, Gestalt.MESH_TRIANGLES);
         G5.plane();
         G5.quad();
         G5.sphere();
@@ -64,12 +67,7 @@ public class Lesson00_GettingStarted
         /* by default all gestalt action happens after processing s draw loop is finished */
 
         mCube.position().set(mouseX, mouseY);
-    }
-
-    public void keyPressed() {
-        System.out.println("fullscreen");
-        G5.fullscreen(false);
-        System.out.println("DONE");
+        mModel.mesh().position().set(mouseX, mouseY);
     }
 
     public static void main(String[] args) {

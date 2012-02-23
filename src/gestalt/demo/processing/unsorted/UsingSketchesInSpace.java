@@ -87,7 +87,7 @@ public class UsingSketchesInSpace
         _myBox.scale().set(_myScreen.scale());
         _myBox.scale().z = 200;
         _myBox.position().z = 100;
-        _myBox.material().color.set(1, 1, 1);
+        _myBox.material().color4f().set(1, 1, 1);
         _myBox.material().transparent = false;
 //        _myNode.add(_myBox);
 

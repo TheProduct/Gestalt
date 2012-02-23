@@ -78,7 +78,7 @@ public class UsingGlowWithGLSLandFBOs
 
         /* create model with texture */
         _myObject = createModel();
-        _myObject.mesh().material().color.set(80 / 255f, 170 / 255f, 255 / 255f);
+        _myObject.mesh().material().color4f().set(80 / 255f, 170 / 255f, 255 / 255f);
 
         TexturePlugin myTexture = drawablefactory().texture();
         myTexture.load(Bitmaps.getBitmap(Resource.getStream("demo/common/stripes.png")));
@@ -88,7 +88,7 @@ public class UsingGlowWithGLSLandFBOs
 
         /* put model into the FBO */
         Model myGlowObject = createModel();
-        myGlowObject.mesh().material().color.set(1, 0.8f);
+        myGlowObject.mesh().material().color4f().set(1, 0.8f);
         myGlowObject.mesh().setRotationRef(_myObject.mesh().rotation());
         myFBO.add(myGlowObject);
 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<controlP5 colorLabel="ffffffff" colorValue="ffffffff" colorForeground="ff00698c" date="Wed Dec 03 00:57:15 CET 2008" colorBackground="ff003652" colorActive="ff0699c4" lock="false" filepath="controlP5.xml" urlpath="">
+<window height="200" name="main" background="00000000" width="400" class="gestalt.candidates.ssao.JoglScreenSpaceAmbientOcclusion$P">
+<tab open="1.0" label="global" name="global" moveable="0.0" visible="1.0" id="-1"/>
+<tab open="1.0" label="default" name="default" moveable="0.0" visible="1.0" id="-1">
+<controller name="SAMPLE_RADIUS" id="-1" width="150" visible="1.0" min="0.0" type="slider" max="0.1" y="20.0" label="SAMPLE_RADIUS" x="20.0" value="0.0050" height="10" moveable="1.0"/>
+<controller name="DISTANCE_SCALE" id="-1" width="150" visible="1.0" min="1.0" type="slider" max="5000.0" y="40.0" label="DISTANCE_SCALE" x="20.0" value="1100.78" height="10" moveable="1.0"/>
+<controller name="MAX_SAMPLE_DELTA" id="-1" width="150" visible="1.0" min="0.0" type="slider" max="1.0" y="60.0" label="MAX_SAMPLE_DELTA" x="20.0" value="0.38" height="10" moveable="1.0"/>
+</tab>
+</window>
+</controlP5>
+

@@ -23,17 +23,17 @@
 
 package gestalt.demo.advanced;
 
+import gestalt.context.DisplayCapabilities;
 import gestalt.extension.shadow.JoglMaterialPluginShadowCombiner;
 import gestalt.extension.shadow.JoglMaterialPluginShadowController;
 import gestalt.extension.shadow.JoglShadowMap;
 import gestalt.extension.shadow.JoglShadowMapDisplay;
-import gestalt.context.DisplayCapabilities;
+import gestalt.material.TexturePlugin;
+import gestalt.material.texture.Bitmaps;
 import gestalt.render.AnimatorRenderer;
 import gestalt.render.controller.Camera;
 import gestalt.shape.Plane;
 import gestalt.shape.Sphere;
-import gestalt.material.TexturePlugin;
-import gestalt.material.texture.Bitmaps;
 import gestalt.util.CameraMover;
 
 import data.Resource;
@@ -42,9 +42,8 @@ import data.Resource;
 /**
  * this demo shows how to use the shadow extension.
  */
-
 public class UsingShadowExtension
-    extends AnimatorRenderer {
+        extends AnimatorRenderer {
 
     private JoglShadowMap _myShadowMapExtension;
 
@@ -57,7 +56,6 @@ public class UsingShadowExtension
         myDisplayCapabilities.height = 600;
         return myDisplayCapabilities;
     }
-
 
     public void setup() {
         /* gestalt */
@@ -85,14 +83,14 @@ public class UsingShadowExtension
         mySphereA.position().set(100, 50, -100);
         mySphereA.scale().set(100, 100, 100);
         mySphereA.material().lit = true;
-        mySphereA.material().color.set(1, 0, 0, 1);
+        mySphereA.material().color4f().set(1, 0, 0, 1);
         mySphereA.material().addPlugin(myCombiner);
 
         Sphere mySphereB = new Sphere();
         mySphereB.position().set(0, 100, 0);
         mySphereB.scale().set(100, 100, 100);
         mySphereB.material().lit = true;
-        mySphereB.material().color.set(1, 0, 0, 1);
+        mySphereB.material().color4f().set(1, 0, 0, 1);
         mySphereB.material().addPlugin(myCombiner);
         mySphereB.material().addPlugin(myTexture);
 
@@ -100,14 +98,14 @@ public class UsingShadowExtension
         mySphereC.position().set(100, 350, 0);
         mySphereC.scale().set(100, 100, 100);
         mySphereC.material().lit = true;
-        mySphereC.material().color.set(1, 0.5f, 0, 1);
+        mySphereC.material().color4f().set(1, 0.5f, 0, 1);
         mySphereC.material().addPlugin(myCombiner);
 
         Plane myPlane = drawablefactory().plane();
         myPlane.scale().set(1000, 1000, 1);
         myPlane.rotation().x = -PI_HALF;
         myPlane.material().lit = true;
-        myPlane.material().color.set(1, 1, 1, 1);
+        myPlane.material().color4f().set(1, 1, 1, 1);
         myPlane.material().normalizenormals = true;
         myPlane.material().addPlugin(myTexture);
         myPlane.material().transparent = true;
@@ -118,7 +116,6 @@ public class UsingShadowExtension
          * if the combiner is plugged before the controller, the effect of switch off
          * the controller yields undesirable combinder results.
          */
-
         myPlane.material().addPlugin(_myController);
         myPlane.material().addPlugin(myCombiner);
 
@@ -139,7 +136,7 @@ public class UsingShadowExtension
         light().ambient.set(0, 0, 0, 1);
 
         /* camera() */
-        camera().position().set( -400, 1000, 1000);
+        camera().position().set(-400, 1000, 1000);
         camera().setMode(CAMERA_MODE_LOOK_AT);
 
         /* display shadowmap */
@@ -147,14 +144,13 @@ public class UsingShadowExtension
                                                                   myShadowMapWidth,
                                                                   myShadowMapHeight);
         myDisplay.scale().scale(0.5f);
-        myDisplay.material().color.a = 0.5f;
+        myDisplay.material().color4f().a = 0.5f;
         myDisplay.position().set(displaycapabilities().width / -2,
                                  displaycapabilities().height / 2);
         myDisplay.position().x += myDisplay.scale().x / 2;
         myDisplay.position().y += myDisplay.scale().y / -2;
         bin(BIN_2D_FOREGROUND).add(myDisplay);
     }
-
 
     private boolean toggleCamera;
 
@@ -173,9 +169,9 @@ public class UsingShadowExtension
             myCamera = camera();
         }
 
-        /* set shadow color */
-        _myShadowMapExtension.shadowcolor.set( (float) event().mouseX / (float) displaycapabilities().width);
-        _myShadowMapExtension.shadowcolor.a = (float) event().mouseY / (float) displaycapabilities().height;
+        /* set shadow color4f */
+        _myShadowMapExtension.shadowcolor.set((float)event().mouseX / (float)displaycapabilities().width);
+        _myShadowMapExtension.shadowcolor.a = (float)event().mouseY / (float)displaycapabilities().height;
 
         /* use controller plugin */
         if (event().mouseClicked) {
@@ -218,7 +214,6 @@ public class UsingShadowExtension
             }
         }
     }
-
 
     public static void main(String[] arg) {
         new UsingShadowExtension().init();

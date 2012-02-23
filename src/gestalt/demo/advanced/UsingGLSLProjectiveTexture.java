@@ -100,7 +100,7 @@ public class UsingGLSLProjectiveTexture
             mySphere.position().set(r.getFloat() * 500 - 250,
                                     r.getFloat() * 200,
                                     r.getFloat() * 500 - 250);
-            mySphere.material().color.set(r.getFloat(0.35f, 0.65f));
+            mySphere.material().color4f().set(r.getFloat(0.35f, 0.65f));
             mySphere.material().lit = true;
             mySphere.material().addPlugin(new ProjectiveTextureMaterial(mySphere, _myProjectionTexture));
             bin(BIN_3D).add(mySphere);

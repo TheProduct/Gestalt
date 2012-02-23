@@ -51,7 +51,7 @@ public class UsingNonPowerOfTwoFrameBufferObjects
             final Cuboid myCube = G.cuboid(_myFBO.bin());
             myCube.scale(20, 20, 20);
             myCube.position(random(-100, 100), random(-100, 100), random(-100, 100));
-            myCube.material().color.set(random(), random(), random());
+            myCube.material().color4f().set(random(), random(), random());
         }
 
         /* create a display */

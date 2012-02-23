@@ -76,9 +76,9 @@ public class UsingFrameGrabbing
             _myPlanes[i].material().transparent = true;
         }
         bin(BIN_3D).add(_myPlanes);
-        _myPlanes[1].material().color.set(1, 0, 0);
-        _myPlanes[2].material().color.set(0, 1, 0);
-        _myPlanes[3].material().color.set(0, 0, 1);
+        _myPlanes[1].material().color4f().set(1, 0, 0);
+        _myPlanes[2].material().color4f().set(0, 1, 0);
+        _myPlanes[3].material().color4f().set(0, 0, 1);
 
         /* create frame grabber */
         _myFrameGrabber = drawablefactory().extensions().framegrabber();

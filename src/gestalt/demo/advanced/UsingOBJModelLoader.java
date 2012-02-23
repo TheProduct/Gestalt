@@ -136,7 +136,7 @@ public class UsingOBJModelLoader
         light().enable = true;
         light().setPositionRef(camera().position());
 
-        /* set background color */
+        /* set background color4f */
         displaycapabilities().backgroundcolor.set(0.2f);
     }
 

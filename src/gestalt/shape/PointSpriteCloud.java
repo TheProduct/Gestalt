@@ -149,7 +149,7 @@ public class PointSpriteCloud
         gl.glBegin(_myPrimitive);
         final boolean USE_COLOR = _myColors != null && _myColors.size() == _myVerticesVector.size();
         for (int i = 0; i < myDrawLength; i++) {
-            /* color */
+            /* color4f */
             if (USE_COLOR) {
                 gl.glColor4f(_myColors.get(i).r,
                              _myColors.get(i).g,

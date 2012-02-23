@@ -186,7 +186,7 @@ public class MeshTranslator
 
         for (int i = 0; i < theMesh.colors().length;
                 i += theMesh.getNumberOfColorComponents()) {
-            /* create color for the pixel */
+            /* create color4f for the pixel */
             Color myPixel = new Color();
             myPixel.r = theMesh.colors()[i + 0];
             myPixel.g = theMesh.colors()[i + 1];
@@ -207,7 +207,7 @@ public class MeshTranslator
             float myTexCoordsUnit = 1f / myBitmapWidth;
             float myTexCoordsOffset = myTexCoordsUnit / 2f;
 
-            /* assign color of pixel and texcoords */
+            /* assign color4f of pixel and texcoords */
             if (myVertexInShape == 0) {
                 myBitmap.setPixel(0 + myOffset,
                                   1,

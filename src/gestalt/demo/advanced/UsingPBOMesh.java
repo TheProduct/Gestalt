@@ -72,14 +72,14 @@ public class UsingPBOMesh
 //        _myPBOMesh = new JoglPBOIndexedPointMesh(_myFBO, false);
         _myPBOMesh.position().set( -64, -64, -64);
         _myPBOMesh.scale().set(128, 128, 128);
-        _myPBOMesh.material().color.set(1, 0.25f);
+        _myPBOMesh.material().color4f().set(1, 0.25f);
         _myPBOMesh.material().wireframe = true;
         bin(BIN_3D).add(_myPBOMesh);
 
         final Plane myFloor = new Plane();
         myFloor.scale().set(_myPBOMesh.scale());
         myFloor.material().wireframe = true;
-        myFloor.material().color.set(1, 1, 0, 1);
+        myFloor.material().color4f().set(1, 1, 0, 1);
         bin(BIN_3D).add(myFloor);
     }
 

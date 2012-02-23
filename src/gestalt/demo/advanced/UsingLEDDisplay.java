@@ -79,7 +79,7 @@ public class UsingLEDDisplay
         for (int i = 0; i < 13; i++) {
             final Sphere mySphere = G.sphere(_myLEDDisplay.bin());
             mySphere.scale(20, 20, 20);
-            mySphere.material().color.set(0, 0.5f, 1.0f);
+            mySphere.material().color4f().set(0, 0.5f, 1.0f);
             mySphere.position().set(Random.FLOAT(-100, 100),
                                     Random.FLOAT(-100, 100));
         }
@@ -90,7 +90,7 @@ public class UsingLEDDisplay
                                    event(),
                                    theDeltaTime);
 
-        /* pulse background color */
+        /* pulse background color4f */
         _myCounter += theDeltaTime;
         final float myColor = (float)Math.abs(Math.sin(_myCounter * 0.5f)) * 0.9f + 0.1f;
         _myLEDDisplay.backgroundcolor().set(myColor);

@@ -23,17 +23,18 @@
 
 package gestalt.util.pdfwriter;
 
-
 import gestalt.extension.quadline.QuadLine;
 import gestalt.render.AnimatorRenderer;
 import gestalt.material.Color;
 
+import mathematik.Matrix4f;
 import mathematik.Random;
 import mathematik.Vector3f;
+import mathematik.Vector4f;
 
 
 public class TestQuadLineTranslator
-    extends AnimatorRenderer {
+        extends AnimatorRenderer {
 
     private PDFWriter _myPDFWriter;
 
@@ -45,7 +46,6 @@ public class TestQuadLineTranslator
         _myPDFWriter = new PDFWriter("../thisisatest.pdf", displaycapabilities().width, displaycapabilities().height);
         bin(BIN_3D_FINISH).add(_myPDFWriter);
     }
-
 
     public void loop(float theDeltaTime) {
         if (event().keyPressed('s')) {
@@ -61,24 +61,22 @@ public class TestQuadLineTranslator
         }
     }
 
-
     private QuadLine makeQuadline() {
         QuadLine _myQuadLine = drawablefactory().extensions().quadline();
         _myQuadLine.points = new Vector3f[] {
-                             getRandomVector(0),
-                             getRandomVector(50),
-                             getRandomVector(100),
-                             getRandomVector(150)};
+            getRandomVector(0),
+            getRandomVector(50),
+            getRandomVector(100),
+            getRandomVector(150)};
         _myQuadLine.colors = new Color[] {
-                             new Color(1, 0),
-                             new Color(1, 0.33f),
-                             new Color(1, 0.6f),
-                             new Color(1, 1)};
+            new Color(1, 0),
+            new Color(1, 0.33f),
+            new Color(1, 0.6f),
+            new Color(1, 1)};
         _myQuadLine.linewidth = 20;
         _myQuadLine.update();
         return _myQuadLine;
     }
-
 
     private Vector3f getRandomVector(float theValue) {
         Random myRandom = new Random();
@@ -86,7 +84,6 @@ public class TestQuadLineTranslator
                             myRandom.getFloat(0, theValue),
                             myRandom.getFloat(0, theValue));
     }
-
 
     public static void main(String[] args) {
         new TestQuadLineTranslator().init();

@@ -23,7 +23,6 @@
 
 package mathematik;
 
-
 import java.io.Serializable;
 
 
@@ -32,9 +31,9 @@ import java.io.Serializable;
  * i ll read my linear algebra book and fix this class.
  * someday. hopefully.
  */
-
 public final class Intersection
-    implements Serializable, Mathematik {
+        implements Serializable,
+                   Mathematik {
 
     private static final long serialVersionUID = -5392974339890719551L;
 
@@ -67,11 +66,11 @@ public final class Intersection
 
         Vector3f norm = thePlane.normal; //new Vector3f();
 
-        if(thePlane.normal == null){
+        if (thePlane.normal == null) {
             thePlane.updateNormal();
             norm = thePlane.normal;
         }
-        
+
         float dirDotNorm = theRay.direction.dot(norm);
         float sign;
         if (dirDotNorm > EPSILON) {
@@ -107,8 +106,8 @@ public final class Intersection
                         if (!doPlanar) {
                             theResult.set(theRay.origin);
                             theResult.add(theRay.direction.x * t,
-                                      theRay.direction.y * t,
-                                      theRay.direction.z * t);
+                                          theRay.direction.y * t,
+                                          theRay.direction.z * t);
                         } else {
                             // these weights can be used to determine
                             // interpolated values, such as texture coord.
@@ -127,7 +126,6 @@ public final class Intersection
         }
         return false;
     }
-
 
 //    /**
 //     * @deprecated not in good state.
@@ -207,8 +205,6 @@ public final class Intersection
 //        }
 //        return false;
 //    }
-
-
     /*
      * Practical Analysis of Optimized Ray-Triangle Intersection
      * Tomas Moeller
@@ -287,12 +283,12 @@ public final class Intersection
         return true;
     }
 
-
     /**
      * grabbed from Xith
      * @todo not sure whether this is for ray-plane or
      * line-plane intersection. but i think it s for latter,
      * hence the method name.
+     *
      * @param thePlane Plane3f
      * @param theRay Ray3f
      * @param theIntersectionPoint Vector3f
@@ -311,18 +307,17 @@ public final class Intersection
         }
 
         double numer = _myTempNormal.dot(theRay.origin);
-        double D = - (thePlane.origin.dot(_myTempNormal));
-        time = - ( (numer + D) / denom);
+        double D = -(thePlane.origin.dot(_myTempNormal));
+        time = -((numer + D) / denom);
 
         if (theIntersectionPoint != null) {
             theIntersectionPoint.set(theRay.direction);
-            theIntersectionPoint.scale( (float) time);
+            theIntersectionPoint.scale((float)time);
             theIntersectionPoint.add(theRay.origin);
         }
 
-        return (float) time;
+        return (float)time;
     }
-
 
 //    /**
 //     * @deprecated this method might contain errors.
@@ -399,8 +394,6 @@ public final class Intersection
 //
 //        return t;
 //    }
-
-
     /**
      * @deprecated this method might contain errors.
      * @param theRayOrigin Vector3f
@@ -458,7 +451,6 @@ public final class Intersection
         return true;
     }
 
-
     /**
      * @deprecated this method might contain errors.
      * @param theRay Ray3f
@@ -508,7 +500,6 @@ public final class Intersection
         return true;
     }
 
-
     /**
      * @deprecated this method might contain errors.
      * @param theRay Ray3f
@@ -549,7 +540,6 @@ public final class Intersection
 
         return t;
     }
-
 
     /**
      * Fast, Minimum Storage Ray-Triangle Intersection
@@ -644,15 +634,14 @@ public final class Intersection
         return true;
     }
 
-
     public static class Result {
+
         public float t;
 
         public float u;
 
         public float v;
     }
-
 
     public static float intersectRayTriangle(final Vector3f theRayOrigin,
                                              final Vector3f theRayDirection,
@@ -728,16 +717,15 @@ public final class Intersection
         return t;
     }
 
-
     /**
      * http://local.wasp.uwa.edu.au/~pbourke/geometry/sphereline/raysphere.c
-       Calculate the intersection of a ray and a sphere
-       The line segment is defined from p1 to p2
-       The sphere is of radius r and centered at sc
-       There are potentially two points of intersection given by
-       p = p1 + mu1 (p2 - p1)
-       p = p1 + mu2 (p2 - p1)
-       Return FALSE if the ray doesn't intersect the sphere.
+     * Calculate the intersection of a ray and a sphere
+     * The line segment is defined from p1 to p2
+     * The sphere is of radius r and centered at sc
+     * There are potentially two points of intersection given by
+     * p = p1 + mu1 (p2 - p1)
+     * p = p1 + mu2 (p2 - p1)
+     * Return FALSE if the ray doesn't intersect the sphere.
      */
     public static boolean RaySphere(Vector3f p1,
                                     Vector3f p2,
@@ -775,12 +763,10 @@ public final class Intersection
         return true;
     }
 
-
     /**
      * from paul bourke ( http://local.wasp.uwa.edu.au/~pbourke/geometry/lineline2d/ )
      *
      */
-
     public static final int COINCIDENT = 0;
 
     public static final int PARALLEL = 1;
@@ -792,14 +778,14 @@ public final class Intersection
     public static int lineLineIntersect(Vector2f aBegin, Vector2f aEnd,
                                         Vector2f bBegin, Vector2f bEnd,
                                         Vector2f theIntersection) {
-        float denom = ( (bEnd.y - bBegin.y) * (aEnd.x - aBegin.x)) -
-                      ( (bEnd.x - bBegin.x) * (aEnd.y - aBegin.y));
+        float denom = ((bEnd.y - bBegin.y) * (aEnd.x - aBegin.x))
+                - ((bEnd.x - bBegin.x) * (aEnd.y - aBegin.y));
 
-        float nume_a = ( (bEnd.x - bBegin.x) * (aBegin.y - bBegin.y)) -
-                       ( (bEnd.y - bBegin.y) * (aBegin.x - bBegin.x));
+        float nume_a = ((bEnd.x - bBegin.x) * (aBegin.y - bBegin.y))
+                - ((bEnd.y - bBegin.y) * (aBegin.x - bBegin.x));
 
-        float nume_b = ( (aEnd.x - aBegin.x) * (aBegin.y - bBegin.y)) -
-                       ( (aEnd.y - aBegin.y) * (aBegin.x - bBegin.x));
+        float nume_b = ((aEnd.x - aBegin.x) * (aBegin.y - bBegin.y))
+                - ((aEnd.y - aBegin.y) * (aBegin.x - bBegin.x));
 
         if (denom == 0.0f) {
             if (nume_a == 0.0f && nume_b == 0.0f) {
@@ -822,7 +808,6 @@ public final class Intersection
 
         return NOT_INTERESECTING;
     }
-
 
     /**
      * from paul bourke ( http://local.wasp.uwa.edu.au/~pbourke/geometry/lineline3d/ )
@@ -878,6 +863,48 @@ public final class Intersection
         return true;
     }
 
+    public static Vector3f[] intersectRaySpherePoints(Vector3f pSphereCenter,
+                                                      float pSphereRadius,
+                                                      Vector3f pRayDirection,
+                                                      Vector3f pRayOrigin) {
+        // Solve quadratic equation
+        float a = pRayDirection.lengthSquared();
+        if (a == 0.0) {
+            return null;
+        }
+        float b = 2.0f * (pRayOrigin.dot(pRayDirection) - pRayDirection.dot(pSphereCenter));
+        Vector3f tempDiff = mathematik.Util.sub(pSphereCenter, pRayOrigin);
+        float c = tempDiff.lengthSquared() - (pSphereRadius * pSphereRadius);
+        float disc = b * b - 4 * a * c;
+        if (disc < 0.0f) {
+            return null;
+        }
+        int numIntersections;
+        if (disc == 0.0f) {
+            numIntersections = 1;
+        } else {
+            numIntersections = 2;
+        }
+
+        // Atleast one intersection        
+        Vector3f[] points = new Vector3f[numIntersections];
+        float t0;
+        float t1 = 0.0f;
+        t0 = ((0.5f * (-1.0f * b + (float)Math.sqrt(disc))) / a);
+        if (numIntersections == 2) {
+            t1 = ((0.5f * (-1.0f * b - (float)Math.sqrt(disc))) / a);
+        }
+        // point 1 of intersection 
+        points[0] = new Vector3f(pRayDirection);
+        points[0].scale(t0);
+        points[0].add(pRayOrigin);
+        if (numIntersections == 2) {
+            points[1] = new Vector3f(pRayDirection);
+            points[1].scale(t1);
+            points[1].add(pRayOrigin);
+        }
+        return points;
+    }
 
     public static void main(String[] args) {
         Vector3f myP1 = new Vector3f();

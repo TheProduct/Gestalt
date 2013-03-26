@@ -21,10 +21,11 @@
  */
 
 
-package mathematik;
+package gestalt.shape;
 
 
 import gestalt.material.Color;
+import mathematik.Vector3f;
 
 
 public class Vertex3f {

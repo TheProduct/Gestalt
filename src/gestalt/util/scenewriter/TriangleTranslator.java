@@ -19,9 +19,8 @@
  * {@link http://www.gnu.org/licenses/lgpl.html}
  *
  */
-
-
 package gestalt.util.scenewriter;
+
 
 import gestalt.Gestalt;
 import gestalt.render.Drawable;
@@ -40,7 +39,7 @@ public class TriangleTranslator
     }
 
     public void parse(SceneWriter theParent, Drawable theDrawable) {
-        final Triangles theMesh = (Triangles)theDrawable;
+        final Triangles theMesh = (Triangles) theDrawable;
 
         /* write unique header */
         int myUniqueID;// = Gestalt.UNDEFINED;
@@ -50,10 +49,10 @@ public class TriangleTranslator
         }
 
         /* apply transform */
-        final TransformMatrix4f myTransform = mathematik.Util.getTranslateRotationTransform(theMesh.getTransformMode(),
-                                                                                            theMesh.transform(),
-                                                                                            theMesh.rotation(),
-                                                                                            theMesh.scale());
+        final TransformMatrix4f myTransform = gestalt.util.Util.getTranslateRotationTransform(theMesh.getTransformMode(),
+                                                                                              theMesh.transform(),
+                                                                                              theMesh.rotation(),
+                                                                                              theMesh.scale());
         /* vertices */
         for (int i = 0; i < theMesh.triangles().size(); i++) {
             Triangle myTriangle = theMesh.triangles().get(i);

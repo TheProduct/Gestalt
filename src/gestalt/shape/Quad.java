@@ -19,16 +19,13 @@
  * {@link http://www.gnu.org/licenses/lgpl.html}
  *
  */
-
-
 package gestalt.shape;
+
 
 import gestalt.material.Material;
 import gestalt.context.GLContext;
-import gestalt.context.GLContext;
 import gestalt.util.JoglUtil;
 
-import mathematik.Vertex3f;
 
 import javax.media.opengl.GL;
 
@@ -36,7 +33,7 @@ import javax.media.opengl.GL;
 public class Quad
         extends AbstractShape {
 
-    private Vertex3f[] _myPoints = new Vertex3f[] {
+    private Vertex3f[] _myPoints = new Vertex3f[]{
         new Vertex3f(true),
         new Vertex3f(true),
         new Vertex3f(true),

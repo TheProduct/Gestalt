@@ -28,7 +28,6 @@ import gestalt.context.GLContext;
 import gestalt.context.GLContext;
 import gestalt.util.JoglUtil;
 
-import mathematik.Vertex3f;
 
 import javax.media.opengl.GL;
 

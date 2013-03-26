@@ -19,8 +19,6 @@
  * {@link http://www.gnu.org/licenses/lgpl.html}
  *
  */
-
-
 package gestalt.util.scenewriter;
 
 
@@ -34,12 +32,11 @@ import mathematik.Vector3f;
 
 
 public class PlaneTranslator
-    implements DrawableOBJTranslator {
+        implements DrawableOBJTranslator {
 
     public boolean isClass(Drawable theDrawable) {
         return theDrawable instanceof Plane;
     }
-
 
     public void parse(SceneWriter theParent,
                       Drawable theDrawable) {
@@ -54,14 +51,14 @@ public class PlaneTranslator
         parseMaterial(theParent, myPlane);
 
         /* get transform */
-        final TransformMatrix4f myTransform = mathematik.Util.getTranslateRotationTransform(myPlane.getTransformMode(),
-            myPlane.transform(),
-            myPlane.rotation(),
-            myPlane.scale());
-        final TransformMatrix4f myNormalTransform = mathematik.Util.getRotationTransform(myPlane.getTransformMode(),
-                                                                                         myPlane.transform(),
-                                                                                         myPlane.rotation(),
-                                                                                         myPlane.scale());
+        final TransformMatrix4f myTransform = gestalt.util.Util.getTranslateRotationTransform(myPlane.getTransformMode(),
+                                                                                              myPlane.transform(),
+                                                                                              myPlane.rotation(),
+                                                                                              myPlane.scale());
+        final TransformMatrix4f myNormalTransform = gestalt.util.Util.getRotationTransform(myPlane.getTransformMode(),
+                                                                                           myPlane.transform(),
+                                                                                           myPlane.rotation(),
+                                                                                           myPlane.scale());
 
         /* get four points */
         float myX = 0;
@@ -153,7 +150,6 @@ public class PlaneTranslator
         }
         theParent.println();
     }
-
 
     protected void parseMaterial(SceneWriter theParent, Plane myPlane) {
         theParent.parseMaterial(myPlane.material());

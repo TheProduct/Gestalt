@@ -19,8 +19,6 @@
  * {@link http://www.gnu.org/licenses/lgpl.html}
  *
  */
-
-
 package gestalt.util.meshcreator;
 
 
@@ -35,23 +33,24 @@ import mathematik.Vector3f;
 
 
 public class MeshTranslator
-    implements DrawableMeshTranslator {
+        implements DrawableMeshTranslator {
 
     public boolean isClass(Drawable theDrawable) {
         return theDrawable instanceof Mesh;
     }
 
-
     public void parse(MeshCreator theParent, Drawable theDrawable) {
-        /** @todo there are a million things missing here. translation from triangle to quad for example... */
-
+        /**
+         * @todo there are a million things missing here. translation from
+         * triangle to quad for example...
+         */
         final Mesh myMesh = (Mesh) theDrawable;
         final Material material = myMesh.material();
 
-        final TransformMatrix4f myTransform = mathematik.Util.getTranslateRotationTransform(myMesh.getTransformMode(),
-            myMesh.transform(),
-            myMesh.rotation(),
-            myMesh.scale());
+        final TransformMatrix4f myTransform = gestalt.util.Util.getTranslateRotationTransform(myMesh.getTransformMode(),
+                                                                                              myMesh.transform(),
+                                                                                              myMesh.rotation(),
+                                                                                              myMesh.scale());
 
         final int _myDrawLength = myMesh.drawlength();
         final float[] _myNormals = myMesh.normals();
@@ -71,8 +70,8 @@ public class MeshTranslator
 
         for (int i = 0; i < _myDrawLength; i++) {
             /* normals */
-            if (_myNormals != null &&
-                _myNormals.length != 0) {
+            if (_myNormals != null
+                    && _myNormals.length != 0) {
                 final Vector3f myNormal = new Vector3f(_myNormals[myNormalIndex],
                                                        _myNormals[myNormalIndex + 1],
                                                        _myNormals[myNormalIndex + 2]);
@@ -81,9 +80,9 @@ public class MeshTranslator
                 myNormalIndex += NUMBER_OF_NORMAL_COMPONENTS;
             }
             /* texcoords */
-            if (_myTexCoords != null &&
-                _myTexCoords.length != 0 &&
-                !material.disableTextureCoordinates) {
+            if (_myTexCoords != null
+                    && _myTexCoords.length != 0
+                    && !material.disableTextureCoordinates) {
                 if (_myNumberOfTexCoordComponents == 2) {
                     theParent.addTexCoord(new Vector2f(_myTexCoords[myTexCoordIndex],
                                                        _myTexCoords[myTexCoordIndex + 1]));
@@ -97,8 +96,8 @@ public class MeshTranslator
                 myTexCoordIndex += _myNumberOfTexCoordComponents;
             }
             /* color */
-            if (_myColors != null &&
-                _myColors.length != 0) {
+            if (_myColors != null
+                    && _myColors.length != 0) {
                 if (_myNumberOfColorComponents == 3) {
                     theParent.addColor(new Color(_myColors[myColorIndex],
                                                  _myColors[myColorIndex + 1],

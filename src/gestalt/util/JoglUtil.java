@@ -40,7 +40,7 @@ import gestalt.material.TexturePlugin;
 import mathematik.TransformMatrix4f;
 import mathematik.Vector2f;
 import mathematik.Vector3f;
-import mathematik.Vertex3f;
+import gestalt.shape.Vertex3f;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

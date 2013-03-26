@@ -19,8 +19,6 @@
  * {@link http://www.gnu.org/licenses/lgpl.html}
  *
  */
-
-
 package gestalt.util.scenewriter;
 
 
@@ -49,7 +47,7 @@ public class MeshTranslator
     }
 
     public void parse(SceneWriter theParent, Drawable theDrawable) {
-        final Mesh theMesh = (Mesh)theDrawable;
+        final Mesh theMesh = (Mesh) theDrawable;
         parseMesh(theParent, theMesh);
     }
 
@@ -79,17 +77,19 @@ public class MeshTranslator
     public static void sendMesh(final SceneWriter theParent,
                                 final Mesh theMesh) {
         /* apply transform */
-        final TransformMatrix4f myTransform = mathematik.Util.getTranslateRotationTransform(theMesh.getTransformMode(),
-                                                                                            theMesh.transform(),
-                                                                                            theMesh.rotation(),
-                                                                                            theMesh.scale());
+        final TransformMatrix4f myTransform = gestalt.util.Util.getTranslateRotationTransform(theMesh.getTransformMode(),
+                                                                                              theMesh.transform(),
+                                                                                              theMesh.rotation(),
+                                                                                              theMesh.scale());
 
         /* -- vertex data -- */
 
         /* write vertices -- 'v' */
         for (int i = 0; i < theMesh.vertices().length;
                 i += theMesh.getNumberOfVertexComponents()) {
-            /** @todo we assume for now that we always have 3 vertex components. */
+            /**
+             * @todo we assume for now that we always have 3 vertex components.
+             */
             if (theMesh.getNumberOfVertexComponents() != 3) {
                 System.out.println(
                         "### WARNING / use 3 vertex components only.");
@@ -109,11 +109,13 @@ public class MeshTranslator
         if (theMesh.texcoords() != null) {
             for (int i = 0; i < theMesh.texcoords().length; i += theMesh.getNumberOfTexCoordComponents()) {
                 /* transform texture coords */
-                /** @todo rotation is missing */
+                /**
+                 * @todo rotation is missing
+                 */
                 final Vector2f myTexCoord = new Vector2f(theMesh.texcoords()[i + 0],
                                                          theMesh.texcoords()[i + 1]);
-                if (theMesh.material() != null &&
-                        theMesh.material().texture() != null) {
+                if (theMesh.material() != null
+                        && theMesh.material().texture() != null) {
                     final Vector2f myTexScale = new Vector2f(theMesh.material().texture().scale().x,
                                                              theMesh.material().texture().scale().y);
                     myTexScale.scale(theMesh.material().texture().nonpoweroftwotexturerescale());
@@ -177,8 +179,8 @@ public class MeshTranslator
             System.out.println("### WARNING @ MeshTranslator.writeTexture() / primitive unsupported yet. sorry!");
             return;
         }
-        int myNumberOfShapes = (theMesh.colors().length /
-                theMesh.getNumberOfColorComponents()) / myNumberOfVerticesPerShape;
+        int myNumberOfShapes = (theMesh.colors().length
+                / theMesh.getNumberOfColorComponents()) / myNumberOfVerticesPerShape;
 
         /* create bitmap */
         int myBitmapWidth = myNumberOfShapes * 2;
@@ -218,15 +220,15 @@ public class MeshTranslator
                 myBitmap.setPixel(1 + myOffset,
                                   1,
                                   myPixel);
-                theMesh.texcoords()[myTexCoordsIndex] = myTexCoordsUnit * myOffset + myTexCoordsUnit +
-                        myTexCoordsOffset;
+                theMesh.texcoords()[myTexCoordsIndex] = myTexCoordsUnit * myOffset + myTexCoordsUnit
+                        + myTexCoordsOffset;
                 theMesh.texcoords()[myTexCoordsIndex + 1] = 0.25f;
             } else if (myVertexInShape == 2) {
                 myBitmap.setPixel(1 + myOffset,
                                   0,
                                   myPixel);
-                theMesh.texcoords()[myTexCoordsIndex] = myTexCoordsUnit * myOffset + myTexCoordsUnit +
-                        myTexCoordsOffset;
+                theMesh.texcoords()[myTexCoordsIndex] = myTexCoordsUnit * myOffset + myTexCoordsUnit
+                        + myTexCoordsOffset;
                 theMesh.texcoords()[myTexCoordsIndex + 1] = 0.75f;
             } else if (myVertexInShape == 3) {
                 myBitmap.setPixel(0 + myOffset,

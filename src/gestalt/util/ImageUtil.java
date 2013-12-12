@@ -21,8 +21,8 @@
  */
 package gestalt.util;
 
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -55,10 +55,6 @@ import gestalt.material.texture.bitmap.IntegerBitmap;
 import werkzeug.interpolation.InterpolateClamp;
 import werkzeug.interpolation.Interpolator;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
-
 
 public class ImageUtil {
 
@@ -69,7 +65,6 @@ public class ImageUtil {
     public static final int VERTICAL = 1;
 
     /* save */
-
     public static void save(final ByteBitmap myByteBitmap,
                             final String theFileName,
                             int theImageFileFormat) {
@@ -78,7 +73,6 @@ public class ImageUtil {
              theFileName,
              theImageFileFormat);
     }
-
 
     public static void save(final BufferedImage theImage,
                             final String theFileName,
@@ -98,31 +92,24 @@ public class ImageUtil {
         }
 
         switch (theImageFileFormat) {
-            case IMAGE_FILEFORMAT_JPEG:
-                 {
-                    try {
-                        File myFile = new File(theFileName);
-                        FileOutputStream myOutputFile = new FileOutputStream(myFile);
-                        JPEGEncodeParam myEncodeParam = JPEGCodec.getDefaultJPEGEncodeParam(theImage);
-                        myEncodeParam.setQuality(1.0f, true);
-                        JPEGImageEncoder myEncoder = JPEGCodec.createJPEGEncoder(myOutputFile);
-                        myEncoder.encode(theImage, myEncodeParam);
-                        myOutputFile.close();
-                    } catch (Exception ex) {
-                        System.err.println("### ERROR @ ImageUtil / failed to write JPEG: " + ex);
-                    }
+            case IMAGE_FILEFORMAT_JPEG: {
+                try {
+                    File mFile = new File(theFileName);
+                    javax.imageio.ImageIO.write(theImage, "jpeg", mFile);
+                } catch (IOException ex) {
+                    System.err.println("### ERROR @ ImageUtil / failed to write JPEG: " + ex);
                 }
-                break;
-            case IMAGE_FILEFORMAT_PNG:
-                 {
-                    File file = new File(theFileName);
-                    try {
-                        javax.imageio.ImageIO.write(theImage, "png", file);
-                    } catch (IOException ex) {
-                        System.err.println("### ERROR @ ImageUtil / failed to write PNG: " + ex);
-                    }
+            }
+            break;
+            case IMAGE_FILEFORMAT_PNG: {
+                File mFile = new File(theFileName);
+                try {
+                    javax.imageio.ImageIO.write(theImage, "png", mFile);
+                } catch (IOException ex) {
+                    System.err.println("### ERROR @ ImageUtil / failed to write PNG: " + ex);
                 }
-                break;
+            }
+            break;
             default:
                 System.err.println("### ERROR @ ImageUtil / couldn t find image format. " + theImageFileFormat);
         }
@@ -135,13 +122,8 @@ public class ImageUtil {
         while (myValue < theValue) {
             myValue *= 2;
         }
-        if (myValue == theValue) {
-            return true;
-        } else {
-            return false;
-        }
+        return myValue == theValue;
     }
-
 
     public static int getNextPowerOf2(int theValue) {
         int myValue = 1;
@@ -151,13 +133,11 @@ public class ImageUtil {
         return myValue;
     }
 
-
     public static ByteBitmap flipBitmap(ByteBitmap theBitmap) {
         BufferedImage myBufferedImage = ImageUtil.convertByteBitmap2BufferedImage(theBitmap);
         myBufferedImage = ImageUtil.flip(myBufferedImage, ImageUtil.VERTICAL);
         return ImageUtil.convertBufferedImage2ByteBitmap(myBufferedImage);
     }
-
 
     public static ByteBitmap convertBufferedImage2ByteBitmap(BufferedImage myImage) {
         int myWidth = myImage.getWidth();
@@ -165,8 +145,7 @@ public class ImageUtil {
         int[] myPackedPixels = new int[myWidth * myHeight];
 
         /**
-         * @todo
-         * textures are stored in 32bit, RGBA always.
+         * @todo textures are stored in 32bit, RGBA always.
          */
         byte[] myUnpackedPixels = new byte[myPackedPixels.length * ByteBitmap.NUMBER_OF_PIXEL_COMPONENTS];
 
@@ -189,7 +168,7 @@ public class ImageUtil {
                 int myPackedPixelPosition = row * myWidth + col;
                 int myUnpackedPixelPosition = myPackedPixelPosition * ByteBitmap.NUMBER_OF_PIXEL_COMPONENTS;
                 int myPackedPixel = myPackedPixels[myPackedPixelPosition];
-                myUnpackedPixels[myUnpackedPixelPosition + BLUE] = (byte) ((myPackedPixel >> 0) & 0xFF);
+                myUnpackedPixels[myUnpackedPixelPosition + BLUE] = (byte) ((myPackedPixel) & 0xFF);
                 myUnpackedPixels[myUnpackedPixelPosition + GREEN] = (byte) ((myPackedPixel >> 8) & 0xFF);
                 myUnpackedPixels[myUnpackedPixelPosition + RED] = (byte) ((myPackedPixel >> 16) & 0xFF);
                 myUnpackedPixels[myUnpackedPixelPosition + ALPHA] = (byte) ((myPackedPixel >> 24) & 0xFF);
@@ -200,7 +179,6 @@ public class ImageUtil {
                               myHeight,
                               BITMAP_COMPONENT_ORDER_RGBA);
     }
-
 
     public static BufferedImage convertByteBitmap2BufferedImage(ByteBitmap theBitmap) {
         BufferedImage myImage = new BufferedImage(theBitmap.getWidth(),
@@ -223,7 +201,6 @@ public class ImageUtil {
         return myImage;
     }
 
-
     public static BufferedImage convertByteBitmap2BufferedImageBGR(ByteBitmap theBitmap) {
         BufferedImage myImage = new BufferedImage(theBitmap.getWidth(),
                                                   theBitmap.getHeight(),
@@ -244,7 +221,6 @@ public class ImageUtil {
         return myImage;
     }
 
-
     public static BufferedImage convertIntegerBitmap2BufferedImage(IntegerBitmap theBitmap) {
         final BufferedImage myImage = new BufferedImage(theBitmap.getWidth(),
                                                         theBitmap.getHeight(),
@@ -259,7 +235,6 @@ public class ImageUtil {
 
         return myImage;
     }
-
 
     public static IntegerBitmap convertBufferedImage2IntegerBitmap(BufferedImage theBitmap) {
         final int[] src = ((DataBufferInt) theBitmap.getRaster().getDataBuffer()).getData();
@@ -299,7 +274,6 @@ public class ImageUtil {
         }
     }
 
-
     public static void gradientCurve(final ByteBitmap theBitmap, Interpolator theInterpolator) {
         Interpolator myInterpolator = new Interpolator(0.0f, 1.0f, new InterpolateClamp(0.0f, 1.0f));
         Color myPixel = new Color();
@@ -318,7 +292,6 @@ public class ImageUtil {
         }
     }
 
-
     public static void edgeDetection(final ByteBitmap theBitmap, float theValue) {
         final float myValue = -1;
         float[] theKernel = {myValue, theValue, myValue};
@@ -326,9 +299,9 @@ public class ImageUtil {
         convolve1DV(theBitmap, theKernel);
     }
 
-
     /**
      * there seems to be a problem with transparency.
+     *
      * @param theBitmap ByteBitmap
      * @param theRadius float
      */
@@ -354,7 +327,6 @@ public class ImageUtil {
         convolve1DH(theBitmap, theKernel);
         convolve1DV(theBitmap, theKernel);
     }
-
 
     public static void convolve1DH(final ByteBitmap theBitmap, float[] theKernel) {
         final int myWidth = theBitmap.getWidth();
@@ -396,7 +368,6 @@ public class ImageUtil {
             }
         }
     }
-
 
     public static void convolve1DV(final ByteBitmap theBitmap, float[] theKernel) {
         final int myWidth = theBitmap.getWidth();
@@ -461,12 +432,10 @@ public class ImageUtil {
         return myImage;
     }
 
-
     public static ByteBitmap scale(final ByteBitmap theImage, float theScale) {
         BufferedImage myBufferedImage = convertByteBitmap2BufferedImage(theImage);
         return convertBufferedImage2ByteBitmap(scale(myBufferedImage, theScale));
     }
-
 
     public static BufferedImage scale(final BufferedImage theImage, float theScale) {
         int myWidth = (int) (theImage.getWidth() * theScale);
@@ -478,12 +447,10 @@ public class ImageUtil {
         return myScaledBufferedImage;
     }
 
-
     public static ByteBitmap scaleTo(final ByteBitmap theImage, int myWidth, int myHeight) {
         BufferedImage myBufferedImage = convertByteBitmap2BufferedImage(theImage);
         return convertBufferedImage2ByteBitmap(scaleTo(myBufferedImage, myWidth, myHeight));
     }
-
 
     public static BufferedImage scaleTo(final BufferedImage theImage, int myWidth, int myHeight) {
         myWidth = Math.max(1, myWidth);
@@ -494,7 +461,6 @@ public class ImageUtil {
         return myScaledBufferedImage;
     }
 
-
     public static BufferedImage filter(final BufferedImage image, BufferedImageOp op) {
         BufferedImage filteredImage = new BufferedImage(image.getWidth(),
                                                         image.getHeight(),
@@ -503,19 +469,16 @@ public class ImageUtil {
         return filteredImage;
     }
 
-
     public static BufferedImage convolve(final BufferedImage image, float[] elements, int theWidth, int theHeight) {
         Kernel kernel = new Kernel(theWidth, theHeight, elements);
         ConvolveOp op = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
         return filter(image, op);
     }
 
-
     public static ByteBitmap blur(final ByteBitmap theImage, int theRadius) {
         return ImageUtil.convertBufferedImage2ByteBitmap(
                 ImageUtil.blur(ImageUtil.convertByteBitmap2BufferedImage(theImage), theRadius));
     }
-
 
     public static BufferedImage blur(final BufferedImage image) {
         float weight = 1.0f / 9.0f;
@@ -525,7 +488,6 @@ public class ImageUtil {
         }
         return convolve(image, elements, 3, 3);
     }
-
 
     public static BufferedImage blur(final BufferedImage image, int theRadius) {
         /* create a blur kernel */
@@ -548,7 +510,6 @@ public class ImageUtil {
         return convolve(myImage, elements, elements.length, 1);
     }
 
-
     public static BufferedImage gaussianBlur(final BufferedImage image, float sigma) {
 
         final int radius = (int) Math.round(3.0 * sigma) - 1;
@@ -558,8 +519,8 @@ public class ImageUtil {
             for (int j = 0; j < size; ++j) {
                 float x = i - radius;
                 float y = j - radius;
-                kernel[i][j] = (float) Math.exp(-(x * x + y * y) / (2.0f * sigma * sigma)) /
-                        (2.0f * PI * sigma * sigma);
+                kernel[i][j] = (float) Math.exp(-(x * x + y * y) / (2.0f * sigma * sigma))
+                        / (2.0f * PI * sigma * sigma);
             }
         }
 
@@ -575,24 +536,21 @@ public class ImageUtil {
         return convolve(image, elements, size, size);
     }
 
-
     public static BufferedImage sharpen(final BufferedImage image) {
         float[] elements = {0.0f, -1.0f, 0.0f,
-            -1.0f, 5.f, -1.0f,
-            0.0f, -1.0f, 0.0f
+                            -1.0f, 5.f, -1.0f,
+                            0.0f, -1.0f, 0.0f
         };
         return convolve(image, elements, 3, 3);
     }
-
 
     public static BufferedImage edgeDetect(BufferedImage image) {
         float[] elements = {0.0f, -1.0f, 0.0f,
-            -1.0f, 4.f, -1.0f,
-            0.0f, -1.0f, 0.0f
+                            -1.0f, 4.f, -1.0f,
+                            0.0f, -1.0f, 0.0f
         };
         return convolve(image, elements, 3, 3);
     }
-
 
     public static BufferedImage brighten(BufferedImage image) {
         float a = 1.5f;
@@ -600,7 +558,6 @@ public class ImageUtil {
         RescaleOp op = new RescaleOp(a, b, null);
         return filter(image, op);
     }
-
 
     public static void add(ByteBitmap a, ByteBitmap b) {
         for (int x = 0; x < a.getWidth(); x++) {
@@ -612,7 +569,6 @@ public class ImageUtil {
             }
         }
     }
-
 
     public static BufferedImage rotate(BufferedImage image, float theRadiansAngle) {
         AffineTransform transform = AffineTransform.getRotateInstance(theRadiansAngle,
@@ -654,11 +610,9 @@ public class ImageUtil {
         return myFrame;
     }
 
-
     public static JFrame displayBitmap(final Bitmap theBitamp) {
         return displayBitmap(theBitamp, "", false);
     }
-
 
     public static JFrame displayBytesAsImage(byte[] data,
                                              int width,
@@ -715,7 +669,6 @@ public class ImageUtil {
         return displayBufferedImage(img, theWindowName, theUndecorated);
     }
 
-
     public static JFrame displayByteBufferAsImage(ByteBuffer data,
                                                   int width,
                                                   int height,
@@ -734,7 +687,6 @@ public class ImageUtil {
         }
         return displayBufferedImage(img, theWindowName, theUndecorated);
     }
-
 
     public static JFrame displayIntsAsImage(int[] data,
                                             int width,
@@ -757,7 +709,6 @@ public class ImageUtil {
         return displayBufferedImage(myImage, theWindowName, theUndecorated);
     }
 
-
     public static JFrame displayBufferedImage(BufferedImage img, String theWindowName, boolean theUndecorated) {
         ImageIcon icon = new ImageIcon(img);
         JLabel label = new JLabel();
@@ -767,10 +718,10 @@ public class ImageUtil {
         if (!theUndecorated) {
             frame.addWindowListener(new WindowAdapter() {
 
-                                public void windowClosing(WindowEvent e) {
-                                    System.exit(0);
-                                }
-                            });
+                public void windowClosing(WindowEvent e) {
+                    System.exit(0);
+                }
+            });
         } else {
             frame.setUndecorated(true);
         }
